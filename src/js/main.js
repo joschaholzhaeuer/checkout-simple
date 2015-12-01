@@ -13,13 +13,18 @@ function adressbox() {
     if ($label.hasClass('checked')) {
 
         $label.removeClass('checked');
+        $adressbox.show();
         $adressbox.removeClass('no-validation');
         $val_fields.removeClass('no-validation-required');
 
     // if checkbox is checked, hide additional box
     } else {
         $label.addClass('checked');
+        $adressbox.hide();
         $adressbox.addClass('no-validation');
+        if (!$val_fields.hasClass('no-validation-required')) {
+            $val_fields.addClass('no-validation-required');
+        }
 
         // remove all input and error messages
         if ($val_fields.hasClass('fields-error-frame')) {
@@ -36,9 +41,9 @@ function adressbox() {
 
 function showKreditbox() {
 
-    var $kreditbox = $('.kreditbox'),
-        kreditbox_offset = $('.kredit-toggle').offset().top - 100;
+    var $kreditbox = $('.kreditbox');
 
+    $kreditbox.show();
     $kreditbox.removeClass('no-validation');
     $('.no-validation-fields2').removeClass('no-validation-required');
 
@@ -46,11 +51,15 @@ function showKreditbox() {
 
 function hideKreditbox() {
 
-    var $kreditbox = $('.kreditbox');
+    var $kreditbox = $('.kreditbox'),
+        $val_fields = $('.no-validation-fields2');
 
+    $kreditbox.hide();
     $kreditbox.addClass('no-validation');
 
-    var $val_fields = $('.no-validation-fields2');
+    if (!$val_fields.hasClass('no-validation-required')) {
+        $val_fields.addClass('no-validation-required');
+    }
 
     // remove all input and error messages
     if ($val_fields.hasClass('fields-error-frame')) {
@@ -694,6 +703,10 @@ function updateUserdata() {
         l_surname     = $('.lieferadresse-surname').val(),
         l_mail        = $('.lieferadresse-mail').val();
 
+        console.log(l_name);
+        console.log(l_surname);
+        console.log(l_mail);
+
     $pre_username.val(l_name + l_surname);
     $pre_mail.val(l_mail);
 }
@@ -710,6 +723,10 @@ $(document).ready(function($) {
     // Hide loading spinner
     $('.spinner').hide();
 
+    // Hide additional boxes
+    $('.adressbox').hide();
+    $('.kreditbox').hide();
+
     // Hide error messages
     $('.fields-error').hide();
     $('.fields-error2').hide();
@@ -721,9 +738,6 @@ $(document).ready(function($) {
 
     // Animate and switch tabs an nav clicks
     $(document).on('click', '.steps-item', function() {
-
-        // jump to top
-        $('body,html').scrollTop(0);
 
         var $clicked_tab = $(this),
         $tab_one     = $('.tab-one'),
@@ -743,38 +757,43 @@ $(document).ready(function($) {
         $tab_active.addClass('box-overlay');
         $spinner.show();
 
-        //check for errors
-        // $('.fields-input').each(function(index, el) {
-        //     if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-        //         checkErrorsInput($(this));
-        //     }
-        // });
-        // $('.fields-number').each(function(index, el) {
-        //     if (!$(this).hasClass('no-validation-required')) {
-        //         checkErrorsNumber($(this));
-        //     }
-        // });
-        // $('.fields-streetnumber').each(function(index, el) {
-        //     if (!$(this).hasClass('no-validation-required')) {
-        //         checkErrorsStreetNumber($(this));
-        //     }
-        // });
-        // $('.fields-date').each(function(index, el) {
-        //     if (!$(this).hasClass('no-validation-required')) {
-        //         checkErrorsExpiration($(this));
-        //     }
-        // });
-        // $('.fields-mail').each(function(index, el) {
-        //     if (!$(this).hasClass('no-validation-required')) {
-        //         checkErrorsMail($(this));
-        //     }
-        // });
+        // check for errors
+        $('.fields-input').each(function(index, el) {
+            if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
+                checkErrorsInput($(this));
+            }
+        });
+        $('.fields-number').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsNumber($(this));
+            }
+        });
+        $('.fields-streetnumber').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsStreetNumber($(this));
+            }
+        });
+        $('.fields-date').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsExpiration($(this));
+            }
+        });
+        $('.fields-mail').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsMail($(this));
+            }
+        });
 
         setTimeout(delay_one, 1000);
         function delay_one() {
 
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
+
+                var error_pos = $('.fields-error-frame').first().offset().top - 200;
+
+                //smooth scroll to error
+                $('body,html').scrollTop(error_pos);
 
             // go to next step if there are no errors
             } else {
@@ -832,96 +851,30 @@ $(document).ready(function($) {
                 // click on tab 3
                 } else if ($clicked_tab.hasClass('step-three') && !$clicked_tab.hasClass('steps-item--active')) {
 
-                    // check, if rechnungsadresse and/or kreditkarte are checked
-                    if ($('#rechnungsadresse').is(':checked')) {
+                    $tab_three.removeClass('tab--inactive');
+                    $tab_three.addClass('tab--active');
+                    $tab_one.removeClass('tab--active');
+                    $tab_one.addClass('tab--inactive');
+                    $tab_two.removeClass('tab--active');
+                    $tab_two.addClass('tab--inactive');
 
-                        // check, if  kreditkarte is checked
-                        if (!$('#kreditkarte').is(':checked')) {
-
-                            $tab_three.removeClass('tab--inactive');
-                            $tab_three.addClass('tab--active');
-                            $tab_one.removeClass('tab--active');
-                            $tab_one.addClass('tab--inactive');
-                            $tab_two.removeClass('tab--active');
-                            $tab_two.addClass('tab--inactive');
-
-                            $step_three.addClass('steps-item--active');
-                            $step_one.addClass('steps-item--done');
-                            $step_two.addClass('steps-item--done');
-                            if ($step_one.hasClass('steps-item--active')) {
-                                $step_one.removeClass('steps-item--active');
-                            } else if ($step_two.hasClass('steps-item--active')) {
-                                $step_two.removeClass('steps-item--active');
-                            }
-
-                            // show additional boxes
-                            showCheckboxes();
-                            updateText();
-                            calculateCosts();
-                            updateUserdata();
-
-                        // kreditkarte is not checked
-                        } else  {
-
-                            //check for errors
-                            $('.fields-input').each(function(index, el) {
-                                if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                                    checkErrorsInput($(this));
-                                }
-                            });
-                            $('.fields-number').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsNumber($(this));
-                                }
-                            });
-                            $('.fields-streetnumber').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsStreetNumber($(this));
-                                }
-                            });
-                            $('.fields-date').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsExpiration($(this));
-                                }
-                            });
-                            $('.fields-mail').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsMail($(this));
-                                }
-                            });
-                        }
-
-                    // stop and check errors
-                    } else {
-
-                        //check for errors
-                        $('.fields-input').each(function(index, el) {
-                            if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                                checkErrorsInput($(this));
-                            }
-                        });
-                        $('.fields-number').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsNumber($(this));
-                            }
-                        });
-                        $('.fields-streetnumber').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsStreetNumber($(this));
-                            }
-                        });
-                        $('.fields-date').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsExpiration($(this));
-                            }
-                        });
-                        $('.fields-mail').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsMail($(this));
-                            }
-                        });
+                    $step_three.addClass('steps-item--active');
+                    $step_one.addClass('steps-item--done');
+                    $step_two.addClass('steps-item--done');
+                    if ($step_one.hasClass('steps-item--active')) {
+                        $step_one.removeClass('steps-item--active');
+                    } else if ($step_two.hasClass('steps-item--active')) {
+                        $step_two.removeClass('steps-item--active');
                     }
+
+                    // show additional boxes
+                    updateText();
+                    calculateCosts();
+                    updateUserdata();
                 }
+
+                // jump to top
+                $('body,html').scrollTop(0);
             }
 
             setTimeout(delay_spinner, 300);
@@ -937,9 +890,6 @@ $(document).ready(function($) {
 
     // Animate and switch tabs on button clicks
     $(document).on('click', '.button-next', function() {
-
-        // jump to top
-        $('body,html').scrollTop(0);
 
         var $clicked_button = $(this),
         $tab_one     = $('.tab-one'),
@@ -988,6 +938,11 @@ $(document).ready(function($) {
 
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
+
+                var error_pos = $('.fields-error-frame').first().offset().top - 200;
+
+                //smooth scroll to error
+                $('body,html').scrollTop(error_pos);
 
             // go to next step if there are no errors
             } else {
@@ -1042,95 +997,26 @@ $(document).ready(function($) {
                 // click on button 3
                 } else if ($clicked_button.hasClass('button-three')) {
 
-                    // check, if rechnungsadresse and/or kreditkarte are checked
-                    if ($('#rechnungsadresse').is(':checked')) {
+                    $tab_three.removeClass('tab--inactive');
+                    $tab_three.addClass('tab--active');
+                    $tab_one.removeClass('tab--active');
+                    $tab_one.addClass('tab--inactive');
+                    $tab_two.removeClass('tab--active');
+                    $tab_two.addClass('tab--inactive');
 
-                        // check, if  kreditkarte is checked
-                        if (!$('#kreditkarte').is(':checked')) {
-
-                            $tab_three.removeClass('tab--inactive');
-                            $tab_three.addClass('tab--active');
-                            $tab_one.removeClass('tab--active');
-                            $tab_one.addClass('tab--inactive');
-                            $tab_two.removeClass('tab--active');
-                            $tab_two.addClass('tab--inactive');
-
-                            $step_three.addClass('steps-item--active');
-                            $step_one.addClass('steps-item--done');
-                            $step_two.addClass('steps-item--done');
-                            if ($step_one.hasClass('steps-item--active')) {
-                                $step_one.removeClass('steps-item--active');
-                            } else if ($step_two.hasClass('steps-item--active')) {
-                                $step_two.removeClass('steps-item--active');
-                            }
-
-                            // show additional boxes
-                            showCheckboxes();
-                            updateText();
-                            calculateCosts();
-                            updateUserdata();
-
-                        // kreditkarte is not checked
-                        } else  {
-
-                            //check for errors
-                            $('.fields-input').each(function(index, el) {
-                                if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                                    checkErrorsInput($(this));
-                                }
-                            });
-                            $('.fields-number').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsNumber($(this));
-                                }
-                            });
-                            $('.fields-streetnumber').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsStreetNumber($(this));
-                                }
-                            });
-                            $('.fields-date').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsExpiration($(this));
-                                }
-                            });
-                            $('.fields-mail').each(function(index, el) {
-                                if (!$(this).hasClass('no-validation-required')) {
-                                    checkErrorsMail($(this));
-                                }
-                            });
-                        }
-
-                    // stop and check errors
-                    } else {
-
-                        //check for errors
-                        $('.fields-input').each(function(index, el) {
-                            if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                                checkErrorsInput($(this));
-                            }
-                        });
-                        $('.fields-number').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsNumber($(this));
-                            }
-                        });
-                        $('.fields-streetnumber').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsStreetNumber($(this));
-                            }
-                        });
-                        $('.fields-date').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsExpiration($(this));
-                            }
-                        });
-                        $('.fields-mail').each(function(index, el) {
-                            if (!$(this).hasClass('no-validation-required')) {
-                                checkErrorsMail($(this));
-                            }
-                        });
+                    $step_three.addClass('steps-item--active');
+                    $step_one.addClass('steps-item--done');
+                    $step_two.addClass('steps-item--done');
+                    if ($step_one.hasClass('steps-item--active')) {
+                        $step_one.removeClass('steps-item--active');
+                    } else if ($step_two.hasClass('steps-item--active')) {
+                        $step_two.removeClass('steps-item--active');
                     }
+
+                    // show additional boxes
+                    updateText();
+                    calculateCosts();
+                    updateUserdata();
 
                 // click on button 4
                 } else if ($clicked_button.hasClass('button-four')) {
@@ -1150,6 +1036,9 @@ $(document).ready(function($) {
                         checkAgbs();
                     }
                 }
+
+                // jump to top
+                $('body,html').scrollTop(0);
             }
 
             setTimeout(delay_spinner2, 300);

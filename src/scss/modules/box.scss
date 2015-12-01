@@ -9,22 +9,6 @@ STYLESHEET: BOX
     position: relative;
     box-shadow: 0 0 15px 5px $c-medium;
 
-    &-overlay {
-
-        &:after {
-            content: "";
-            display: block;
-            background-color: $white;
-            z-index: 300;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.9;
-        }
-    }
-
     &-section {
         padding: 30px 25px;
         position: relative;
@@ -100,10 +84,6 @@ STYLESHEET: BOX
     }
 
     &-text {
-
-        &-info {
-            transition: all 0.3s ease-in-out;
-        }
 
         &--light {
             color: $c-medium;

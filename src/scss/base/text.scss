@@ -49,3 +49,11 @@ p {
     color: $white;
     transition: all 0.3s ease-in-out;
 }
+
+.text {
+
+    &--highlighted {
+        color: $c-alt-light;
+        font-weight: 700;
+    }
+}

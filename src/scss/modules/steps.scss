@@ -17,7 +17,7 @@ STYLESHEET: STEPS
 .steps {
     width: 100%;
     font-weight: 700;
-    position: fixed;
+    position: absolute;
     z-index: 200;
     margin: 0 2%;
     left: 0;
@@ -35,7 +35,6 @@ STYLESHEET: STEPS
         padding-bottom: 20px;
         text-align: center;
         cursor: pointer;
-        transition: all 0.1s ease-in-out;
         position: relative;
         // border-bottom: 6px solid $c-dark;
         // box-shadow: inset 14px 0 24px -13px rgba(0,0,0,0.3);
@@ -52,7 +51,6 @@ STYLESHEET: STEPS
 
     &-number {
         display: none;
-        transition: all 0.1s ease-in-out;
     }
 }
 
@@ -75,16 +73,6 @@ STYLESHEET: STEPS
                 border-left: 31px solid $c-alt-dark;
                 border-top: 31px solid transparent;
                 border-bottom: 31px solid transparent;
-            }
-
-            &--done {
-                width: 20px;
-                height: 20px;
-                position: absolute;
-                left: 26%;
-                top: 50%;
-                margin-top: -6px;
-                background: url('../img/check.png') no-repeat;
             }
         }
     }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Checkout UX</title>
+        <title>Checkout Simple UX</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,9 @@
         <div class="wrapper">
 
             <nav class="steps clearfix">
-                <div class="steps-item step-one steps-item--active"><span class="steps-number steps-number-one pulse">1</span><span class="step-one--done pulse is-hidden"></span>Lieferangaben</div>
-                <div class="steps-item step-two"><span class="steps-number steps-number-two pulse">2</span><span class="step-two--done pulse is-hidden"></span>Bezahlungsart</div>
-                <div class="steps-item step-three lastitem"><span class="steps-number pulse">3</span>Überprüfung</div>
+                <div class="steps-item step-one steps-item--active"><span class="steps-number steps-number-one">1</span><span class="step-one--done is-hidden"></span>Lieferangaben</div>
+                <div class="steps-item step-two"><span class="steps-number steps-number-two">2</span><span class="step-two--done is-hidden"></span>Bezahlungsart</div>
+                <div class="steps-item step-three lastitem"><span class="steps-number">3</span>Überprüfung</div>
             </nav>
 
             <div class="tab tab-one tab--active">
@@ -48,14 +48,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="name1">Vorname</label>
                                         <span class="fields-error">Bitte geben Sie einen Vornamen ein.</span>
                                         <span class="fields-error2">Ihr Vorname sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--half fields-item--right fl-s">
                                         <input class="fields-input fields-item-frame lieferadresse-surname" type="text" name="surname1" maxlength="30">
                                         <label class="fields-item-label fields-item-placeholder" for="surname1">Nachname</label>
                                         <span class="fields-error">Bitte geben Sie einen Nachnamen ein.</span>
                                         <span class="fields-error2">Ihr Nachname sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left fields-item--long">
@@ -68,14 +66,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="street1">Straße</label>
                                         <span class="fields-error">Bitte geben Sie eine Straße an.</span>
                                         <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right fl-s">
                                         <input class="fields-streetnumber fields-item-frame lieferadresse-number" type="text" name="number1" maxlength="10">
                                         <label class="fields-item-label fields-item-placeholder" for="number1">Nr.</label>
                                         <span class="fields-error">Bitte geben Sie eine Nummer an.</span>
                                         <span class="fields-error2">Haben Sie eine Nummer angegeben?</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left fields-item--long">
@@ -88,14 +84,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="city1">Ort</label>
                                         <span class="fields-error">Bitte geben Sie einen Ort an.</span>
                                         <span class="fields-error2">Der Ort sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right fl-s">
                                         <input class="fields-number fields-item-frame lieferadresse-plz" type="text" name="plz1" data-validation="min5" maxlength="5">
                                         <label class="fields-item-label fields-item-placeholder" for="plz1">Postleitzahl</label>
                                         <span class="fields-error">Bitte geben Sie eine Postleitzahl an.</span>
                                         <span class="fields-error2">Die PLZ sollte aus 5 Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left fields-item--long">
@@ -111,15 +105,13 @@
                                 <div class="fields-item fields-item--left fields-item--long">
                                     <input class="fields-mail fields-item-frame kontakt-toggle lieferadresse-mail" type="text" name="mail1" maxlength="45">
                                     <label class="fields-item-label fields-item-placeholder" for="mail1">E-Mail</label>
-                                    <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">max.mustermax@gmail.com</span>
                                     <span class="fields-error">Bitte geben Sie eine E-Mail-Adresse an.</span>
                                     <span class="fields-error2">Bitte geben Sie eine gültige E-Mail-Adresse an. (z.B.: max.mustermax@gmail.com)</span>
-                                    <span class="icon--correct"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="box-section box-section--dark versandbox">
+                    <div class="box-section box-section--dark">
                         <h2 class="box-section-heading">Versandart</h2>
                         <p class="box-text box-text-info text-lieferung">Lieferung voraussichtlich am Freitag, den 11.12.2015</p>
                         <div class="fields">
@@ -193,9 +185,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box-section box-section--dark box-section-icon adressbox no-validation">
+                    <div class="box-section box-section--dark box-section-icon no-validation">
                         <div class="fields">
                             <div class="fields-section">
+                                <p class="box-text text--highlighted">Bitte nur ausfüllen, wenn die Rechnungsadresse von der Lieferadresse abweicht.</p>
                                 <h3 class="fields-heading">Rechnungsadresse</h3>
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item-inline fields-item--dark fields-item-radio">
@@ -213,14 +206,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="name2">Vorname</label>
                                         <span class="fields-error">Bitte geben Sie einen Vornamen ein.</span>
                                         <span class="fields-error2">Ihr Vorname sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--half fields-item--right--dark fl-s">
                                         <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-surname" type="text" name="surname2" maxlength="30">
                                         <label class="fields-item-label fields-item-placeholder" for="surname2">Nachname</label>
                                         <span class="fields-error">Bitte geben Sie einen Nachnamen ein.</span>
                                         <span class="fields-error2">Ihr Nachname sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left--dark fields-item--long">
@@ -233,14 +224,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="street2">Straße</label>
                                         <span class="fields-error">Bitte geben Sie eine Straße an.</span>
                                         <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right--dark fl-s">
                                         <input class="fields-streetnumber fields-item-frame no-validation-fields no-validation-required rechnungsadresse-number" type="text" name="number2" maxlength="10">
                                         <label class="fields-item-label fields-item-placeholder" for="number2">Nr.</label>
                                         <span class="fields-error">Bitte geben Sie eine Nummer an.</span>
                                         <span class="fields-error2">Haben Sie eine Nummer angegeben?</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left--dark fields-item--long">
@@ -253,14 +242,12 @@
                                         <label class="fields-item-label fields-item-placeholder" for="city2">Ort</label>
                                         <span class="fields-error">Bitte geben Sie einen Ort an.</span>
                                         <span class="fields-error2">Der Ort sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right--dark fl-s">
                                         <input class="fields-number fields-item-frame no-validation-fields no-validation-required rechnungsadresse-plz" type="text" name="plz2" data-validation="min5" maxlength="5">
                                         <label class="fields-item-label fields-item-placeholder" for="plz2">Postleitzahl</label>
                                         <span class="fields-error">Bitte geben Sie eine Postleitzahl an.</span>
                                         <span class="fields-error2">Die PLZ sollte aus 5 Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item fields-item--left--dark fields-item--long">
@@ -302,6 +289,7 @@
                         </div>
                     </div>
                     <div class="box-section box-section--dark box-section-icon kreditbox no-validation">
+                        <p class="box-text text--highlighted">Bitte nur ausfüllen, wenn Sie Kreditkarte als Zahlungsmittel ausgewählt haben.</p>
                         <div class="fields">
                             <div class="sicherheits-wrapper clearfix">
                                 <h2 class="box-section-heading lastitem">Sichere Zahlung mit Kreditkarte</h2>
@@ -312,10 +300,8 @@
                                     <div class="fields-item fields-item--half fl-s">
                                         <input class="fields-number fields-item-frame no-validation-fields2 no-validation-required" type="text" name="cardnumber" data-validation="min16" maxlength="16">
                                         <label class="fields-item-label fields-item-placeholder" for="cardnumber">Kreditkartennummer</label>
-                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">1234123412341234</span>
                                         <span class="fields-error">Bitte geben Sie die Kreditkartennummer an.</span>
                                         <span class="fields-error2">Die Kreditkartennummer sollte aus 16 Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <img class="fields-img-large fl-s" src="dist/img/credit_front.png" alt="Sie finden die Nummer auf der Vorderseite">
                                     <span class="fields-img-description">Die 16-stellige Zahl auf der Vorderseite Ihrer Kreditkarte</span>
@@ -324,10 +310,8 @@
                                     <div class="fields-item fields-item--half fl-s">
                                         <input class="fields-number fields-item-frame no-validation-fields2 no-validation-required" type="text" name="code" data-validation="min3" maxlength="3">
                                         <label class="fields-item-label fields-item-placeholder" for="code">Sicherheitscode</label>
-                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">123</span>
                                         <span class="fields-error">Bitte geben Sie den Sicherheitscode an.</span>
                                         <span class="fields-error2">Der Code sollte aus 3 Ziffern bestehen.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                     <img class="fields-img-large" src="dist/img/credit_back.png" alt="Sie finden den Code auf der Rückseite">
                                     <span class="fields-img-description">Die letzten drei Ziffern auf der Rückseite Ihrer Kreditarte</span>
@@ -336,10 +320,8 @@
                                     <div class="fields-item fields-item--half">
                                         <input class="fields-date fields-item-frame no-validation-fields2 no-validation-required" type="text" name="valid" maxlength="5">
                                         <label class="fields-item-label fields-item-placeholder" for="valid">Gültig bis</label>
-                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">MM/JJ</span>
                                         <span class="fields-error">Bitte geben Sie das Gültigkeitsdatum an.</span>
                                         <span class="fields-error2">Haben Sie das Format MM/JJ richtig angegeben?</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                             </div>
@@ -541,14 +523,12 @@
                                         <label class="fields-item-label fields-item-placeholder label--fixed" for="username">Nutzername</label>
                                         <span class="fields-error">Bitte geben Sie einen Nutzernamen ein.</span>
                                         <span class="fields-error2">Ihr Nutzername sollte nicht aus Ziffern bestehen.</span>
-                                        <span class="icon--correct icon--precorrect"></span>
                                     </div>
                                     <div class="fields-item fields-item--half fields-item--right--dark fl-s">
                                         <input class="fields-mail fields-item-frame prefilled-mail" type="text" name="mail2" maxlength="45">
                                         <label class="fields-item-label fields-item-placeholder label--fixed" for="mail2">E-Mail</label>
                                         <span class="fields-error">Bitte geben Sie eine E-Mail-Adresse an.</span>
                                         <span class="fields-error2">Bitte geben Sie eine gültige E-Mail-Adresse an.</span>
-                                        <span class="icon--correct icon--precorrect"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item-wrapper clearfix">
@@ -556,7 +536,6 @@
                                         <input class="fields-password fields-item-frame" type="password" name="password" maxlength="35">
                                         <label class="fields-item-label fields-item-placeholder" for="password">Passwort</label>
                                         <span class="fields-error">Bitte geben Sie ein Passwort ein.</span>
-                                        <span class="icon--correct"></span>
                                     </div>
                                 </div>
                                 <div class="fields-item-check mt">

@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Checkout UX</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="dist/css/style.css">
+        <script src="dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+        <div class="wrapper">
+
+            <nav class="steps clearfix">
+                <a href="index.html" class="steps-item">Lieferangaben</a>
+                <a href="rechnungsart.html" class="steps-item">Bezahlungsart</a>
+                <a href="ueberpruefung.html" class="steps-item steps-item--active lastitem">Überprüfung</a>
+            </nav>
+
+            <div class="box">
+                <div class="box-section">
+                    <h2 class="box-section-heading">Bitte überprüfen Sie noch einmal Ihre Angaben</h2>
+                    <p class="box-text box-text--light">Bitte schauen Sie sich die unten aufgelisteten Produkte noch einmal an. Wenn Sie keine Änderungen mehr an der Bestellung vornehmen möchten, können Sie mit der Bezahlung fortfahren. Dazu klicken Sie auf die Schaltfläche "Zahlungspflichtig bestellen".</p>
+                </div>
+                <div class="box-section box-section--dark">
+                    <div class="fields clearfix">
+                        <div class="fields-section clearfix fl fields-section--inline">
+                            <h3 class="box-section-heading">Lieferadresse</h3>
+                            <p class="box-text lastitem">Max Mustermax</p>
+                            <p class="box-text lastitem">Mäxchenstraße 13</p>
+                            <p class="box-text lastitem">78120 Maxhausen</p>
+                            <a href="" class="button button-change">Ändern</a>
+                        </div>
+                        <div class="fields-section clearfix fl fields-section--inline">
+                            <h3 class="box-section-heading">Rechnungsadresse</h3>
+                            <p class="box-text lastitem">identisch mit Lieferadresse</p>
+                            <a href="" class="button button-change">Ändern</a>
+                        </div>
+                        <div class="fields-section clearfix fl fields-section--inline">
+                            <h3 class="box-section-heading">Bezahlungsart</h3>
+                            <p class="box-text lastitem">auf Rechnung</p>
+                            <a href="" class="button button-change">Ändern</a>
+                        </div>
+                        <div class="fields-section clearfix fl fields-section--inline lastitem">
+                            <h3 class="box-section-heading">Versandart</h3>
+                            <p class="box-text lastitem">Standardversand</p>
+                            <a href="" class="button button-change">Ändern</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section">
+                    <div class="fields">
+                        <div class="fields-section">
+                            <div class="fields-item-check">
+                                <input id="rechnungsadresse" class="fields-check" type="checkbox" name="adresse" checked>
+                                <label class="fields-label fields-label-check" for="rechnungsadresse">Ich habe die Datenschutzhinweise und die Allgemeinen Geschäftsbedingungen zur Kenntnis genommen. Verbrauchern wird bei der Bestellung von Waren ein Rückgaberecht eingeräumt. Die Einzelheiten der Voraussetzung und Folgen sind in der entsprechenden Belehrung in den AGB aufgeführt.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section box-section--dark">
+                    <h2 class="box-section-heading">Bestellübersicht</h2>
+                    <div class="articles">
+                        <div class="articles-heading-wrapper clearfix">
+                            <h3 class="articles-heading articles-heading--first">Artikel</h3>
+                            <h3 class="articles-heading articles-heading--sec show-m">Anzahl</h3>
+                            <h3 class="articles-heading show-m">Größe</h3>
+                            <h3 class="articles-heading articles-heading--right lastitem">Preis</h3>
+                        </div>
+                        <div class="articles-row clearfix">
+                            <img src="http://placehold.it/300x300" alt="" class="articles-img">
+                            <div class="articles--half clearfix">
+                                <p class="articles-text">Hemd "Midnight Blue"</p>
+                                <div class="articles-item">
+                                    <select class="articles-item-frame" name="country">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                    </select>
+                                </div>
+                                <div class="articles-item nm-m">
+                                    <select class="articles-item-frame" name="country">
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                    </select>
+                                </div>
+                                <p class="articles-price">39,95€</p>
+                            </div>
+                        </div>
+                        <div class="articles-row clearfix">
+                            <img src="http://placehold.it/300x300" alt="" class="articles-img">
+                            <div class="articles--half clearfix">
+                                <p class="articles-text">Hose "Autumn Twill"</p>
+                                <div class="articles-item">
+                                    <select class="articles-item-frame" name="country">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                    </select>
+                                </div>
+                                <div class="articles-item nm-m">
+                                    <select class="articles-item-frame" name="country">
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                    </select>
+                                </div>
+                                <p class="articles-price">39,95€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <div class="price-wrapper clearfix">
+                            <p class="price-text fr">109,90€</p>
+                            <p class="price-text price-text--light price-heading">Warenkorbwert</p>
+                        </div>
+                        <div class="price-wrapper clearfix">
+                            <p class="price-text fr">0,00€</p>
+                            <p class="price-text price-text--light price-heading">zzgl. Versandkosten</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section box-section--highlighted clearfix">
+                    <div class="clearfix">
+                        <p class="box-heading box-heading--highlighted box-heading--right">109,94€</p>
+                        <p class="box-heading box-heading--highlighted box-heading--left">Rechnungsbetrag</p>
+                    </div>
+                    <div class="clearfix">
+                        <p class="box-heading-highlighted box-heading--sub box-heading--sub--right">21,97€</p>
+                        <p class="box-heading-highlighted box-heading--sub box-heading--sub--left">inkl. 19% MwSt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-wrapper clearfix">
+                <a href="rechnungsart.html" class="button button-prev">Zurück zur Bezahlungsart</a>
+                <a href="danke.html" class="button button-next lastitem">Zahlungspflichtig bestellen</a>
+            </div>
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="dist/js/scripts.js"></script>
+    </body>
+</html>

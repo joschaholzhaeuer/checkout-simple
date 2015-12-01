@@ -1,0 +1,121 @@
+/******************************************************************
+STYLESHEET: STEPS
+
+******************************************************************/
+
+.step {
+
+    &-one,
+    &-two {
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.steps {
+    width: 100%;
+    font-weight: 700;
+    position: fixed;
+    z-index: 200;
+    margin: 0 2%;
+    left: 0;
+    right: 0;
+    // border-bottom: 5px solid $c-alt-light;
+    // box-shadow: 0 12px 15px -10px $c-medium;
+
+    &-item {
+        background-color: $c-alt-dark;
+        color: $white;
+        text-decoration: none;
+        float: left;
+        width: 32%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        position: relative;
+        // border-bottom: 6px solid $c-dark;
+        // box-shadow: inset 14px 0 24px -13px rgba(0,0,0,0.3);
+
+        &--active {
+            background-color: $c-alt-light;
+            // box-shadow: 14px 0 24px -13px rgba(0,0,0,0.3);
+        }
+
+        &--done {
+            @extend .steps-item--active;
+        }
+    }
+
+    &-number {
+        display: none;
+        transition: all 0.1s ease-in-out;
+    }
+}
+
+@include medium {
+
+    .step {
+
+        &-one,
+        &-two {
+
+            &:after {
+                content: "";
+                display: inline;
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 0;
+                right: -31px;
+                z-index: 210;
+                border-left: 31px solid $c-alt-dark;
+                border-top: 31px solid transparent;
+                border-bottom: 31px solid transparent;
+            }
+
+            &--done {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: 26%;
+                top: 50%;
+                margin-top: -6px;
+                background: url('../img/check.png') no-repeat;
+            }
+        }
+    }
+
+    .steps {
+
+        &-item {
+
+            &--active {
+
+                &:after {
+                    border-left: 31px solid $c-alt-light;
+                }
+            }
+        }
+
+        &-number {
+            display: inline;
+            margin-right: 10px;
+        }
+    }
+}
+
+@include large {
+
+    .steps {
+        max-width: 900px;
+        margin: 0 auto;
+
+        &-item {
+            width: 300px;
+        }
+    }
+}

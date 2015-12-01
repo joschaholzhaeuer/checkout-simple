@@ -1,0 +1,89 @@
+/******************************************************************
+STYLESHEET: CART
+
+******************************************************************/
+
+.cart {
+    display: none;
+}
+
+
+@include wide {
+
+    .cart {
+        display: block;
+        background-color: $c-light;
+        position: absolute;
+        top: 62px;
+        right: -335px;
+        width: 320px;
+        box-shadow: 0 0 15px 5px $c-medium;
+
+        &-wrapper {
+            padding: 15px 45px 30px 45px;
+        }
+
+        &-heading {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        &-icon {
+
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-right: 20px solid $c-light;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                position: absolute;
+                top: 45px;
+                left: -15px;
+            }
+        }
+
+        &-img {
+            width: 25%;
+            margin-right: 5%;
+        }
+
+        &--half {
+            float: left;
+            width: 70%;
+        }
+
+        &-text {
+            margin-bottom: 0;
+        }
+
+        &-price {
+            font-weight: 700;
+            margin-top: 15px;
+
+            &-text {
+                margin-bottom: 0;
+            }
+
+            &--light {
+                color: $c-medium;
+            }
+        }
+
+        &-section {
+
+            &--highlighted {
+                background-color: $c-alt-light;
+                padding: 20px 45px;
+            }
+        }
+
+        &--highlighted {
+            margin-bottom: 0;
+            margin-top: 0;
+            color: $white;
+            font-weight: 700;
+        }
+    }
+}

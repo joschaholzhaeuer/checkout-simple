@@ -1,0 +1,131 @@
+/******************************************************************
+STYLESHEET: ARTICLES
+
+******************************************************************/
+
+.articles {
+
+    &-heading {
+
+        &-wrapper {
+            display: none;
+        }
+    }
+
+    &-row {
+        margin-bottom: 15px;
+    }
+
+    &-img {
+        float: left;
+        width: 35%;
+        margin-right: 5%;
+    }
+
+    &-text {
+    }
+
+    &--half {
+        width: 60%;
+        float: left;
+    }
+
+    &-item {
+        float: left;
+        margin-right: 6px;
+
+        &-frame {
+            position: relative;
+            border: 1px solid $c-medium;
+            padding: 15px 10px;
+            background: $white;
+            z-index: 10;
+            width: 60px;
+        }
+    }
+
+    &-price {
+        float: right;
+        margin-top: 15px;
+        font-weight: 700;
+    }
+}
+
+@include small {
+
+    .articles {
+
+        &-heading {
+            float: left;
+
+            &-wrapper {
+                display: block;
+            }
+
+            &--right {
+                float: right;
+            }
+        }
+
+        &-img {
+            width: 25%;
+        }
+
+        &--half {
+            width: 70%;
+        }
+
+        &-price {
+            float: right;
+        }
+    }
+}
+
+@include medium {
+
+    .articles {
+
+        &-heading {
+            margin-right: 5%;
+
+            &--first {
+                width: 53%;
+            }
+
+            &--sec {
+                width: 60px;
+                margin-right: 7.5%;
+            }
+        }
+
+        &-img {
+            width: 12%;
+        }
+
+        &--half {
+            width: 83%;
+            margin-top: 16px;
+        }
+
+        &-text {
+            float: left;
+            width: 44%;
+            margin-right: 5%;
+            margin-top: 15px;
+        }
+
+        &-item {
+            margin-right: 9%;
+        }
+    }
+}
+
+@include large {
+
+    .articles {
+
+        &--half {
+            margin-top: 22px;
+        }
+    }
+}

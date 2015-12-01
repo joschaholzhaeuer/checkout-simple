@@ -1,0 +1,54 @@
+/******************************************************************
+STYLESHEET: VARIABLES
+
+    > COLORS
+    > FONTS
+    > BREAKPOINTS
+    > MARGINS/PADDINGS
+
+This is the place for all variables.
+******************************************************************/
+
+// COLORS
+$white:        #fff;
+$black:        #000;
+$grey-light:   #f3f3f5;
+$grey-medium:  #fafafa;
+$grey-dark:    #cdd3d7;
+$blue-light:   #34495e;
+$blue-dark:    #2c3e50;
+$green-light:  #1abc9c;
+$green-dark:   #16a085;
+$red:          #e74c3c;
+
+$c-dark:   $blue-dark;
+$c-medium: $grey-dark;
+$c-light:  $grey-light;
+$c-bg:     $grey-medium;
+
+$c-base: $blue-light;
+$c-alt-light: $green-light;
+$c-alt-dark: $green-dark;
+$c-error: $red;
+
+
+// FONTS
+$roboto: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+
+$f-base:    $roboto;
+$f-heading: $roboto;
+$f-link:    $roboto;
+$f-text:    $roboto;
+
+
+// BREAKPOINTS
+$w-small:  520px;
+$w-medium: 750px;
+$w-large:  1000px;
+$w-wide:   1600px;
+
+
+// MARGINS/PADDINGS
+$m-small:  0.5em;
+$m-medium: 1em;
+$m-large:  3em;

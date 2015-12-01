@@ -1,0 +1,17 @@
+/******************************************************************
+STYLESHEET: GRID
+
+******************************************************************/
+
+.wrapper {
+    margin: 0 2%;
+    position: relative;
+}
+
+@include large {
+
+    .wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}

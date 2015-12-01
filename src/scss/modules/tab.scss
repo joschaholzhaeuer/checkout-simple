@@ -1,0 +1,25 @@
+/******************************************************************
+STYLESHEET: TAB
+
+******************************************************************/
+
+.tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 100px;
+    transition: 0.3s all ease-in-out;
+
+    &--inactive {
+        z-index: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &--active {
+        z-index: 100;
+        opacity: 1;
+        visibility: visible;
+    }
+}

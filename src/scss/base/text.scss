@@ -1,0 +1,51 @@
+/******************************************************************
+STYLESHEET: TEXT
+
+******************************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $f-heading;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin-top: $m-small;
+    margin-bottom: $m-medium;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+    margin-top: $m-small;
+    margin-bottom: $m-medium;
+}
+
+.heading {
+    width: 100%;
+    background-color: $c-alt-light;
+    color: $white;
+    transition: all 0.3s ease-in-out;
+}

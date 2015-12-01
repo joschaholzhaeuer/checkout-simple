@@ -1,0 +1,598 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Checkout UX</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="dist/css/style.css">
+        <script src="dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+        <div class="wrapper">
+
+            <nav class="steps clearfix">
+                <div class="steps-item step-one steps-item--active"><span class="steps-number steps-number-one pulse">1</span><span class="step-one--done pulse is-hidden"></span>Lieferangaben</div>
+                <div class="steps-item step-two"><span class="steps-number steps-number-two pulse">2</span><span class="step-two--done pulse is-hidden"></span>Bezahlungsart</div>
+                <div class="steps-item step-three lastitem"><span class="steps-number pulse">3</span>Überprüfung</div>
+            </nav>
+
+            <div class="tab tab-one tab--active">
+
+                <div class="box">
+                    <div class="box-section">
+                        <h2 class="box-section-heading">Lieferangaben</h2>
+                        <div class="fields">
+                            <div class="fields-section">
+                                <h3 class="fields-heading">Lieferadresse</h3>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item-inline fields-item-radio">
+                                        <input id="female1" class="fields-radio" type="radio" name="gender1" checked>
+                                        <label class="fields-label fields-label-radio" for="female1">Frau</label>
+                                    </div>
+                                    <div class="fields-item fields-item-inline fields-item-radio">
+                                        <input id="male1" class="fields-radio" type="radio" name="gender1">
+                                        <label class="fields-label fields-label-radio" for="male1">Herr</label>
+                                    </div>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--half fields-item--left fl-s">
+                                        <input class="fields-input fields-item-frame lieferadresse-name" type="text" name="name1" maxlength="30">
+                                        <label class="fields-item-label fields-item-placeholder" for="name1">Vorname</label>
+                                        <span class="fields-error">Bitte geben Sie einen Vornamen ein.</span>
+                                        <span class="fields-error2">Ihr Vorname sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--half fields-item--right fl-s">
+                                        <input class="fields-input fields-item-frame lieferadresse-surname" type="text" name="surname1" maxlength="30">
+                                        <label class="fields-item-label fields-item-placeholder" for="surname1">Nachname</label>
+                                        <span class="fields-error">Bitte geben Sie einen Nachnamen ein.</span>
+                                        <span class="fields-error2">Ihr Nachname sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left fields-item--long">
+                                    <input class="fields-input fields-item-frame fields-optional" type="text" name="company1" maxlength="40">
+                                    <label class="fields-item-label fields-item-placeholder fields-item-optional" for="company1">Firma (optional)</label>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--long fields-item--left fl-s">
+                                        <input class="fields-input fields-item-frame lieferadresse-street" type="text" name="street1" maxlength="40">
+                                        <label class="fields-item-label fields-item-placeholder" for="street1">Straße</label>
+                                        <span class="fields-error">Bitte geben Sie eine Straße an.</span>
+                                        <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--short fields-item--right fl-s">
+                                        <input class="fields-streetnumber fields-item-frame lieferadresse-number" type="text" name="number1" maxlength="10">
+                                        <label class="fields-item-label fields-item-placeholder" for="number1">Nr.</label>
+                                        <span class="fields-error">Bitte geben Sie eine Nummer an.</span>
+                                        <span class="fields-error2">Haben Sie eine Nummer angegeben?</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left fields-item--long">
+                                    <input class="fields-input fields-item-frame fields-optional" type="text" name="additional1" maxlength="40">
+                                    <label class="fields-item-label fields-item-placeholder fields-item-optional" for="additional1">Zusatz (optional)</label>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--long fields-item--left fl-s">
+                                        <input class="fields-input fields-item-frame lieferadresse-city" type="text" name="city1" maxlength="40">
+                                        <label class="fields-item-label fields-item-placeholder" for="city1">Ort</label>
+                                        <span class="fields-error">Bitte geben Sie einen Ort an.</span>
+                                        <span class="fields-error2">Der Ort sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--short fields-item--right fl-s">
+                                        <input class="fields-number fields-item-frame lieferadresse-plz" type="text" name="plz1" data-validation="min5" maxlength="5">
+                                        <label class="fields-item-label fields-item-placeholder" for="plz1">Postleitzahl</label>
+                                        <span class="fields-error">Bitte geben Sie eine Postleitzahl an.</span>
+                                        <span class="fields-error2">Die PLZ sollte aus 5 Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left fields-item--long">
+                                    <select class="fields-item-frame fields-item-frame--select" name="country1">
+                                        <option value="">Deutschland</option>
+                                        <option value="">Schweiz</option>
+                                    </select>
+                                    <label class="label--fixed" for="country1">Land</label>
+                                </div>
+                            </div>
+                            <div class="fields-section">
+                                <h3 class="fields-heading">Kontakt</h3>
+                                <div class="fields-item fields-item--left fields-item--long">
+                                    <input class="fields-mail fields-item-frame kontakt-toggle lieferadresse-mail" type="text" name="mail1" maxlength="45">
+                                    <label class="fields-item-label fields-item-placeholder" for="mail1">E-Mail</label>
+                                    <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">max.mustermax@gmail.com</span>
+                                    <span class="fields-error">Bitte geben Sie eine E-Mail-Adresse an.</span>
+                                    <span class="fields-error2">Bitte geben Sie eine gültige E-Mail-Adresse an. (z.B.: max.mustermax@gmail.com)</span>
+                                    <span class="icon--correct"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--dark versandbox">
+                        <h2 class="box-section-heading">Versandart</h2>
+                        <p class="box-text box-text-info text-lieferung">Lieferung voraussichtlich am Freitag, den 11.12.2015</p>
+                        <div class="fields">
+                            <div class="fields-section">
+                                <div class="fields-item-radio">
+                                    <input id="standard1" class="fields-radio versand-toggle versand-s versandart-standard" type="radio" name="versand1" checked>
+                                    <label class="fields-label fields-label-radio versand-toggle versand-s" for="standard1">0,00€ Standardversand</label>
+                                </div>
+                                <p class="fields-text">Lieferung 2-4 Werktage nach Bestelleingang</p>
+                            </div>
+                            <div class="fields-section">
+                                <div class="fields-item-radio">
+                                    <input id="express1" class="fields-radio versand-toggle versand-e versandart-express" type="radio" name="versand1">
+                                    <label class="fields-label fields-label-radio versand-toggle versand-e" for="express1">3,00€ Expressversand</label>
+                                </div>
+                                <p class="fields-text">Lieferung am nächsten Morgen nach Bestelleingang</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <div class="cart-wrapper">
+                            <h2 class="box-section-heading cart-heading">Ihre Bestellung</h2>
+                            <div class="cart-item clearfix">
+                                <img src="dist/img/hemd.png" alt="" class="cart-img fl">
+                                <div class="cart--half fl">
+                                    <p class="cart-text"><span class="cart-article1-count">1</span>x Hemd "Basic"</p>
+                                    <p class="cart-item-price cart-article1-price">39,00€</p>
+                                </div>
+                            </div>
+                            <div class="cart-item clearfix">
+                                <img src="dist/img/hose.png" alt="" class="cart-img fl">
+                                <div class="cart--half fl">
+                                    <p class="cart-text"><span class="cart-article2-count">1</span>x Hose "Chino Blue"</p>
+                                    <p class="cart-item-price cart-article2-price">69,00€</p>
+                                </div>
+                            </div>
+                            <div class="cart-price">
+                                <div class="clearfix">
+                                    <p class="cart-price-text fr cart-wk-price">108,00€</p>
+                                    <p class="cart-price-text cart-price--light fl">Warenkorbwert</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="cart-price-text fr price-toggle">0,00€</p>
+                                    <p class="cart-price-text cart-price--light fl">zzgl. Versandkosten</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-section--highlighted clearfix">
+                            <p class="cart--highlighted fl">Rechnungsbetrag</p>
+                            <p class="cart--highlighted fr price-toggle-ges cart-final-price">108,00€</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-wrapper clearfix">
+                    <div class="button button-next button-two lastitem fr">Weiter zur Bezahlungsart</div>
+                </div>
+            </div>
+
+            <div class="tab tab-two tab--inactive">
+
+                <div class="box">
+                    <div class="box-section">
+                        <h2 class="box-section-heading">Bezahlungsart</h2>
+                        <div class="fields">
+                            <div class="fields-section">
+                                <div class="fields-item-check rechnung-toggle">
+                                    <input id="rechnungsadresse" class="fields-check" type="checkbox" name="adresse" checked>
+                                    <label class="fields-label fields-label-check checked" for="rechnungsadresse">Rechnungsadresse identisch mit Lieferadresse</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--dark box-section-icon adressbox no-validation">
+                        <div class="fields">
+                            <div class="fields-section">
+                                <h3 class="fields-heading">Rechnungsadresse</h3>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item-inline fields-item--dark fields-item-radio">
+                                        <input id="female2" class="fields-radio" type="radio" name="gender2" checked>
+                                        <label class="fields-label fields-label-radio" for="female2">Frau</label>
+                                    </div>
+                                    <div class="fields-item fields-item-inline fields-item--dark fields-item-radio">
+                                        <input id="male2" class="fields-radio" type="radio" name="gender2">
+                                        <label class="fields-label fields-label-radio" for="male2">Herr</label>
+                                    </div>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--half fields-item--left--dark fl-s">
+                                        <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-name" type="text" name="name2" maxlength="30">
+                                        <label class="fields-item-label fields-item-placeholder" for="name2">Vorname</label>
+                                        <span class="fields-error">Bitte geben Sie einen Vornamen ein.</span>
+                                        <span class="fields-error2">Ihr Vorname sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--half fields-item--right--dark fl-s">
+                                        <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-surname" type="text" name="surname2" maxlength="30">
+                                        <label class="fields-item-label fields-item-placeholder" for="surname2">Nachname</label>
+                                        <span class="fields-error">Bitte geben Sie einen Nachnamen ein.</span>
+                                        <span class="fields-error2">Ihr Nachname sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left--dark fields-item--long">
+                                    <input class="fields-input fields-item-frame fields-optional no-validation-fields no-validation-required" type="text" name="company2" maxlength="40">
+                                    <label class="fields-item-label fields-item-placeholder fields-item-optional" for="company2">Firma (optional)</label>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--long fields-item--left--dark fl-s">
+                                        <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-street" type="text" name="street2" maxlength="40">
+                                        <label class="fields-item-label fields-item-placeholder" for="street2">Straße</label>
+                                        <span class="fields-error">Bitte geben Sie eine Straße an.</span>
+                                        <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--short fields-item--right--dark fl-s">
+                                        <input class="fields-streetnumber fields-item-frame no-validation-fields no-validation-required rechnungsadresse-number" type="text" name="number2" maxlength="10">
+                                        <label class="fields-item-label fields-item-placeholder" for="number2">Nr.</label>
+                                        <span class="fields-error">Bitte geben Sie eine Nummer an.</span>
+                                        <span class="fields-error2">Haben Sie eine Nummer angegeben?</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left--dark fields-item--long">
+                                    <input class="fields-input fields-item-frame fields-optional no-validation-fields no-validation-required" type="text" name="additional2">
+                                    <label class="fields-item-label fields-item-placeholder fields-item-optional" for="additional2">Zusatz (optional)</label>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--long fields-item--left--dark fl-s">
+                                        <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-city" type="text" name="city2" maxlength="40">
+                                        <label class="fields-item-label fields-item-placeholder" for="city2">Ort</label>
+                                        <span class="fields-error">Bitte geben Sie einen Ort an.</span>
+                                        <span class="fields-error2">Der Ort sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--short fields-item--right--dark fl-s">
+                                        <input class="fields-number fields-item-frame no-validation-fields no-validation-required rechnungsadresse-plz" type="text" name="plz2" data-validation="min5" maxlength="5">
+                                        <label class="fields-item-label fields-item-placeholder" for="plz2">Postleitzahl</label>
+                                        <span class="fields-error">Bitte geben Sie eine Postleitzahl an.</span>
+                                        <span class="fields-error2">Die PLZ sollte aus 5 Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item fields-item--left--dark fields-item--long">
+                                    <select class="fields-item-frame fields-item-frame--select" name="country2">
+                                        <option value="">Deutschland</option>
+                                        <option value="">Schweiz</option>
+                                    </select>
+                                    <label class="label--fixed" for="country2">Land</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section">
+                        <div class="fields">
+                            <div class="fields-section">
+                                <div class="fields-item-radio">
+                                    <input id="rechnung" class="fields-radio kredit-toggle--off bezahlungsart-rechnung" type="radio" name="bezahlart" checked>
+                                    <label class="fields-label fields-label-radio kredit-toggle--off" for="rechnung">auf Rechnung</label>
+                                </div>
+                                <p class="fields-text">Wir bieten Bestellungen auf Rechnung nur für Privatkunden an</p>
+                                <p class="fields-text">Der maximale Gesamtbetrag einer Erstbestellung auf Rechnung ist 500€</p>
+                                <p class="fields-text">Zahlung auf Rechnung per Überweisung innerhalb von 15 Tagen ab Rechnungsdatum</p>
+                            </div>
+                            <div class="fields-section">
+                                <div class="fields-item-radio">
+                                    <input id="paypal" class="fields-radio kredit-toggle--off bezahlungsart-paypal" type="radio" name="bezahlart">
+                                    <label class="fields-label fields-label-radio kredit-toggle--off" for="paypal">PayPal</label>
+                                </div>
+                                <img class="fields-img" src="dist/img/paypal.png" alt="PayPal Logo">
+                            </div>
+                            <div class="fields-section">
+                                <div class="fields-item-radio">
+                                    <input id="kreditkarte" class="fields-radio kredit-toggle bezahlungsart-kreditkarte" type="radio" name="bezahlart">
+                                    <label class="fields-label fields-label-radio kredit-toggle" for="kreditkarte">Kreditkarte</label>
+                                </div>
+                                <img class="fields-img" src="dist/img/visa.png" alt="VISA Logo">
+                                <img class="fields-img" src="dist/img/mastercard.png" alt="MasterCard Logo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--dark box-section-icon kreditbox no-validation">
+                        <div class="fields">
+                            <div class="sicherheits-wrapper clearfix">
+                                <h2 class="box-section-heading lastitem">Sichere Zahlung mit Kreditkarte</h2>
+                                <p class="box-text box-text-info box-text--light">Diese Zahlungsmethode wird mit 128-SSL sicher verschlüsselt.</p>
+                            </div>
+                            <div class="fields fields-section">
+                                <div class="clearfix">
+                                    <div class="fields-item fields-item--half fl-s">
+                                        <input class="fields-number fields-item-frame no-validation-fields2 no-validation-required" type="text" name="cardnumber" data-validation="min16" maxlength="16">
+                                        <label class="fields-item-label fields-item-placeholder" for="cardnumber">Kreditkartennummer</label>
+                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">1234123412341234</span>
+                                        <span class="fields-error">Bitte geben Sie die Kreditkartennummer an.</span>
+                                        <span class="fields-error2">Die Kreditkartennummer sollte aus 16 Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <img class="fields-img-large fl-s" src="dist/img/credit_front.png" alt="Sie finden die Nummer auf der Vorderseite">
+                                    <span class="fields-img-description">Die 16-stellige Zahl auf der Vorderseite Ihrer Kreditkarte</span>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="fields-item fields-item--half fl-s">
+                                        <input class="fields-number fields-item-frame no-validation-fields2 no-validation-required" type="text" name="code" data-validation="min3" maxlength="3">
+                                        <label class="fields-item-label fields-item-placeholder" for="code">Sicherheitscode</label>
+                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">123</span>
+                                        <span class="fields-error">Bitte geben Sie den Sicherheitscode an.</span>
+                                        <span class="fields-error2">Der Code sollte aus 3 Ziffern bestehen.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                    <img class="fields-img-large" src="dist/img/credit_back.png" alt="Sie finden den Code auf der Rückseite">
+                                    <span class="fields-img-description">Die letzten drei Ziffern auf der Rückseite Ihrer Kreditarte</span>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--half">
+                                        <input class="fields-date fields-item-frame no-validation-fields2 no-validation-required" type="text" name="valid" maxlength="5">
+                                        <label class="fields-item-label fields-item-placeholder" for="valid">Gültig bis</label>
+                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">MM/JJ</span>
+                                        <span class="fields-error">Bitte geben Sie das Gültigkeitsdatum an.</span>
+                                        <span class="fields-error2">Haben Sie das Format MM/JJ richtig angegeben?</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <div class="cart-wrapper">
+                            <h2 class="box-section-heading cart-heading">Ihre Bestellung</h2>
+                            <div class="cart-item clearfix">
+                                <img src="dist/img/hemd.png" alt="" class="cart-img fl">
+                                <div class="cart--half fl">
+                                    <p class="cart-text"><span class="cart-article1-count">1</span>x Hemd "Basic"</p>
+                                    <p class="cart-item-price cart-article1-price">39,00€</p>
+                                </div>
+                            </div>
+                            <div class="cart-item clearfix">
+                                <img src="dist/img/hose.png" alt="" class="cart-img fl">
+                                <div class="cart--half fl">
+                                    <p class="cart-text"><span class="cart-article2-count">1</span>x Hose "Chino Blue"</p>
+                                    <p class="cart-item-price cart-article2-price">69,00€</p>
+                                </div>
+                            </div>
+                            <div class="cart-price">
+                                <div class="clearfix">
+                                    <p class="cart-price-text fr cart-wk-price">108,00€</p>
+                                    <p class="cart-price-text cart-price--light fl">Warenkorbwert</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="cart-price-text fr price-toggle">0,00€</p>
+                                    <p class="cart-price-text cart-price--light fl">zzgl. Versandkosten</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-section--highlighted clearfix">
+                            <p class="cart--highlighted fl">Rechnungsbetrag</p>
+                            <p class="cart--highlighted fr price-toggle-ges cart-final-price">108,00€</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-wrapper clearfix">
+                    <div class="button button-one button-prev">Zurück zu den Lieferangaben</div>
+                    <div class="button button-three button-next lastitem">Weiter zur Überprüfung</div>
+                </div>
+            </div>
+            <div class="tab tab-three tab--inactive">
+
+                <div class="box">
+                    <div class="box-section">
+                        <h2 class="box-section-heading box-heading--strong">Bitte überprüfen Sie noch einmal Ihre Angaben</h2>
+                        <p class="box-text box-text--light">Bitte schauen Sie sich die unten aufgelisteten Produkte noch einmal an. Wenn Sie keine Änderungen mehr an der Bestellung vornehmen möchten, können Sie mit der Bezahlung fortfahren. Dazu klicken Sie auf die Schaltfläche "Zahlungspflichtig bestellen".</p>
+                    </div>
+                    <div class="box-section box-section--dark checkangabenbox fields-pb">
+                        <div class="fields clearfix">
+                            <div class="fields-section clearfix fl fields-section--inline">
+                                <h3 class="box-section-heading">Lieferadresse</h3>
+                                <p class="box-text lastitem change-lieferadresse-name">Max Mustermax</p>
+                                <p class="box-text lastitem firstitem change-lieferadresse-street">Mäxchenstraße 13</p>
+                                <p class="box-text lastitem firstitem change-lieferadresse-city">78120 Maxhausen</p>
+                                <div class="button button-prev button-one button-change">Ändern</div>
+                            </div>
+                            <div class="fields-section clearfix fl fields-section--inline">
+                                <h3 class="box-section-heading">Rechnungsadresse</h3>
+                                <p class="box-text lastitem change-rechnungsadresse">identisch mit Lieferadresse</p>
+                                <p class="box-text lastitem change-rechnungsadresse-name is-hidden">Max Mustermax</p>
+                                <p class="box-text lastitem firstitem change-rechnungsadresse-street is-hidden">Mäxchenstraße 13</p>
+                                <p class="box-text lastitem firstitem change-rechnungsadresse-city is-hidden">78120 Maxhausen</p>
+                                <div class="button button-prev button-two button-change">Ändern</div>
+                            </div>
+                            <div class="fields-section clearfix fl fields-section--inline">
+                                <h3 class="box-section-heading">Bezahlungsart</h3>
+                                <p class="box-text lastitem change-bezahlungsart">auf Rechnung</p>
+                                <div class="button button-prev button-two button-change">Ändern</div>
+                            </div>
+                            <div class="fields-section clearfix fl fields-section--inline lastitem">
+                                <h3 class="box-section-heading">Versandart</h3>
+                                <p class="box-text lastitem change-versandart">Standardversand</p>
+                                <div class="button button-prev button-one button-change">Ändern</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section checkangabenbox">
+                        <div class="fields">
+                            <div class="fields-section">
+                                <div class="fields-item-check">
+                                    <input id="agbs" class="fields-check" type="checkbox" name="adresse" checked>
+                                    <label class="fields-label fields-label-check fields-label--aligned" for="agbs">Ich habe die Datenschutzhinweise und die Allgemeinen Geschäftsbedingungen zur Kenntnis genommen.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--dark checkangabenbox">
+                        <h2 class="box-section-heading">Bestellübersicht</h2>
+                        <div class="articles">
+                            <div class="articles-heading-wrapper clearfix">
+                                <h3 class="articles-heading articles-heading--first">Artikel</h3>
+                                <h3 class="articles-heading articles-heading--sec show-m">Anzahl</h3>
+                                <h3 class="articles-heading show-m">Größe</h3>
+                                <h3 class="articles-heading articles-heading--right lastitem">Preis</h3>
+                            </div>
+                            <div class="articles-row clearfix">
+                                <img src="dist/img/hemd.png" alt="" class="articles-img">
+                                <div class="articles--half clearfix">
+                                    <p class="articles-text">Hemd "Midnight Blue"</p>
+                                    <div class="articles-item">
+                                        <select class="articles-item-frame articles-count articles-count--one" name="country" value="1">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                    <div class="articles-item nm-m">
+                                        <select class="articles-item-frame" name="country">
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                        </select>
+                                    </div>
+                                    <p class="articles-price articles-price--one">39,00€</p>
+                                </div>
+                            </div>
+                            <div class="articles-row clearfix">
+                                <img src="dist/img/hose.png" alt="" class="articles-img">
+                                <div class="articles--half clearfix">
+                                    <p class="articles-text">Hose "Chino Blue"</p>
+                                    <div class="articles-item">
+                                        <select class="articles-item-frame articles-count articles-count--two" name="country" value="1">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                    <div class="articles-item nm-m">
+                                        <select class="articles-item-frame" name="country">
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                        </select>
+                                    </div>
+                                    <p class="articles-price articles-price--two">69,00€</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <div class="price-wrapper clearfix">
+                                <p class="price-text fr price-warenkorb">108,00€</p>
+                                <p class="price-text price-text--light price-heading">Warenkorbwert</p>
+                            </div>
+                            <div class="price-wrapper clearfix">
+                                <p class="price-text fr price-toggle price-versand">0,00€</p>
+                                <p class="price-text price-text--light price-heading">zzgl. Versandkosten</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--highlighted clearfix checkangabenbox">
+                        <div class="clearfix">
+                            <p class="box-heading box-heading--highlighted box-heading--right price-toggle-ges price-final">108,00€</p>
+                            <p class="box-heading box-heading--highlighted box-heading--left">Rechnungsbetrag</p>
+                        </div>
+                        <div class="clearfix">
+                            <p class="box-heading-highlighted box-heading--sub box-heading--sub--right price-mwst">21,00€</p>
+                            <p class="box-heading-highlighted box-heading--sub box-heading--sub--left">inkl. 19% MwSt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-wrapper clearfix checkangabenbox">
+                    <div class="button button-two button-prev">Zurück zur Bezahlungsart</div>
+                    <div class="button button-four button-next lastitem">Zahlungspflichtig bestellen</div>
+                </div>
+            </div>
+
+            <div class="tab tab-four tab--inactive">
+
+                <div class="box no-pt">
+                    <div class="heading box-section">
+                        <h2 class="heading--full">Vielen Dank für Ihre Bestellung!</h2>
+                        <p class="box-text danke-info">Was passiert als Nächstes?</p>
+                    </div>
+                    <div class="box-section box-section-icon box-section-icon--light clearfix tippsbox">
+                        <div class="box-section--half fl">
+                            <h3 class="box-section-heading">Was werden wir als Nächstes tun?</h3>
+                            <p class="box-text box-text--small">Wir senden Ihnen eine Bestellbestätigung per E-Mail.</p>
+                            <p class="box-text box-text--small">Wir werden Ihre Bestellung mit größter Sorgfalt verpacken und versenden.</p>
+                        </div>
+                        <div class="box-section--half fl lastitem">
+                            <h3 class="box-section-heading">Was können Sie als Nächstes tun?</h3>
+                            <p class="box-text box-text--small">Schauen Sie in Ihrem Posteingang nach, ob Sie unsere Bestellbestätigung erhalten haben.</p>
+                            <p class="box-text box-text--small">Registrieren Sie sich, um bei Ihrem nächsten Einkauf von vielen Vorteilen zu profitieren: Eine Bestellübersicht über Ihre bisher getätigten Einkäufe sowie Zugang zu exklusiven Angeboten.</p>
+                        </div>
+                    </div>
+                    <div class="box-section box-section--dark nutzerkontobox">
+                        <div class="fields">
+                            <h3 class="fields-heading">Möchten Sie mit Ihrer E-Mail ein Nutzerkonto anlegen?</h3>
+                            <div class="fields-section">
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--half fields-item--left--dark fl-s">
+                                        <input class="fields-input fields-item-frame prefilled-name" type="text" name="username" maxlength="40">
+                                        <label class="fields-item-label fields-item-placeholder label--fixed" for="username">Nutzername</label>
+                                        <span class="fields-error">Bitte geben Sie einen Nutzernamen ein.</span>
+                                        <span class="fields-error2">Ihr Nutzername sollte nicht aus Ziffern bestehen.</span>
+                                        <span class="icon--correct icon--precorrect"></span>
+                                    </div>
+                                    <div class="fields-item fields-item--half fields-item--right--dark fl-s">
+                                        <input class="fields-mail fields-item-frame prefilled-mail" type="text" name="mail2" maxlength="45">
+                                        <label class="fields-item-label fields-item-placeholder label--fixed" for="mail2">E-Mail</label>
+                                        <span class="fields-error">Bitte geben Sie eine E-Mail-Adresse an.</span>
+                                        <span class="fields-error2">Bitte geben Sie eine gültige E-Mail-Adresse an.</span>
+                                        <span class="icon--correct icon--precorrect"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item-wrapper clearfix">
+                                    <div class="fields-item fields-item--half fields-item--left--dark fl-s">
+                                        <input class="fields-password fields-item-frame" type="password" name="password" maxlength="35">
+                                        <label class="fields-item-label fields-item-placeholder" for="password">Passwort</label>
+                                        <span class="fields-error">Bitte geben Sie ein Passwort ein.</span>
+                                        <span class="icon--correct"></span>
+                                    </div>
+                                </div>
+                                <div class="fields-item-check mt">
+                                    <input id="password" class="fields-check show-pw-toggle pw-check" type="checkbox" name="password">
+                                    <label class="fields-label fields-label-check show-pw-toggle" for="password">Passwort anzeigen</label>
+                                </div>
+                            </div>
+                            <div class="fields-section">
+                                <div class="fields-item-check">
+                                    <input id="newsletter" class="fields-check" type="checkbox" name="newsletter" checked>
+                                    <label class="fields-label fields-label-check" for="newsletter">Ich möchte über Neuigkeiten und spezielle Angebote informiert werden</label>
+                                </div>
+                                <div class="fields-item-check mt">
+                                    <input id="agb" class="fields-check" type="checkbox" name="agb" checked>
+                                    <label class="fields-label fields-label-check" for="agb">Ich akzeptiere die Datenschutzhinweise und die Allgemeinen Geschäftsbedingungen</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-wrapper clearfix">
+                    <a href="index.html" class="button button-prev">Nein, danke. Zurück zum Shop</a>
+                    <a href="index.html" class="button button-next lastitem">Nutzerkonto anlegen</a>
+                </div>
+            </div>
+
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="dist/js/scripts.js"></script>
+    </body>
+</html>

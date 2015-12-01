@@ -1,0 +1,236 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Checkout UX</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="dist/css/style.css">
+        <script src="dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+        <div class="wrapper">
+
+            <nav class="steps clearfix">
+                <a href="index.html" class="steps-item">Lieferangaben</a>
+                <a href="rechnungsart.html" class="steps-item steps-item--active">Bezahlungsart</a>
+                <a href="ueberpruefung.html" class="steps-item lastitem">Überprüfung</a>
+            </nav>
+
+            <div class="box">
+                <div class="box-section">
+                    <h2 class="box-section-heading">Bezahlungsart</h2>
+                    <div class="fields">
+                        <div class="fields-section">
+                            <div class="fields-item-check rechnung-toggle">
+                                <input id="rechnungsadresse" class="fields-check" type="checkbox" name="adresse" checked>
+                                <label class="fields-label fields-label-check checked" for="rechnungsadresse">Rechnungsadresse identisch mit Lieferadresse</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section box-section--dark box-section-icon adressbox box--hidden">
+                    <div class="fields">
+                        <div class="fields-section">
+                            <h3 class="fields-heading">Rechnungsadresse</h3>
+                            <div class="fields-item-wrapper clearfix">
+                                <div class="fields-item fields-item--dark fields-item-inline fields-item-radio">
+                                    <input id="female" class="fields-radio" type="radio" name="gender" value="female" checked>
+                                    <label class="fields-label fields-label-radio" for="female">Frau</label>
+                                </div>
+                                <div class="fields-item fields-item--dark fields-item-inline fields-item-radio">
+                                    <input id="male" class="fields-radio" type="radio" name="gender" value="male">
+                                    <label class="fields-label fields-label-radio" for="male">Mann</label>
+                                </div>
+                            </div>
+                            <div class="fields-item-wrapper clearfix">
+                                <div class="fields-item fields-item--half fields-item--left--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="name">
+                                    <label class="fields-item-label fields-item-placeholder" for="name">Vorname</label>
+                                </div>
+                                <div class="fields-item fields-item--half fields-item--right--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="surname">
+                                    <label class="fields-item-label fields-item-placeholder" for="surname">Nachname</label>
+                                </div>
+                            </div>
+                            <div class="fields-item fields-item-optional fields-item--left--dark fields-item--long">
+                                <input class="fields-item-frame" type="text" name="company">
+                                <label class="fields-item-label fields-item-placeholder" for="company">Firma (optional)</label>
+                            </div>
+                            <div class="fields-item-wrapper clearfix">
+                                <div class="fields-item fields-item--long fields-item--left--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="street">
+                                    <label class="fields-item-label fields-item-placeholder" for="street">Straße</label>
+                                </div>
+                                <div class="fields-item fields-item--short fields-item--right--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="number">
+                                    <label class="fields-item-label fields-item-placeholder" for="number">Nr.</label>
+                                </div>
+                            </div>
+                            <div class="fields-item fields-item-optional fields-item--left--dark fields-item--long">
+                                <input class="fields-item-frame" type="text" name="additional">
+                                <label class="fields-item-label fields-item-placeholder" for="additional">Zusatz (optional)</label>
+                            </div>
+                            <div class="fields-item-wrapper clearfix">
+                                <div class="fields-item fields-item--long fields-item--left--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="city">
+                                    <label class="fields-item-label fields-item-placeholder" for="city">Ort</label>
+                                </div>
+                                <div class="fields-item fields-item--short fields-item--right--dark fl-s">
+                                    <input class="fields-item-frame" type="text" name="plz">
+                                    <label class="fields-item-label fields-item-placeholder" for="plz">Postleitzahl</label>
+                                </div>
+                            </div>
+                            <div class="fields-item fields-item--left--dark fields-item--long">
+                                <select class="fields-item-frame fields-item-frame--select" name="country">
+                                    <option value="">Deutschland</option>
+                                    <option value="">Schweiz</option>
+                                </select>
+                                <label class="fields-item-label" for="country"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section">
+                    <div class="fields">
+                        <div class="fields-section">
+                            <div class="fields-item-radio">
+                                <input id="rechnung" class="fields-radio" type="radio" name="versand" value="rechnung" checked>
+                                <label class="fields-label fields-label-radio" for="rechnung">auf Rechnung</label>
+                            </div>
+                            <p class="fields-text">Wir bieten Bestellungen auf Rechnung nur für Privatkunden an</p>
+                            <p class="fields-text">Der maximale Gesamtbetrag einer Erstbestellung auf Rechnung ist 500€</p>
+                            <p class="fields-text">Zahlung auf Rechnung per Überweisung innerhalb von 15 Tagen ab Rechnungsdatum</p>
+                        </div>
+                        <div class="fields-section">
+                            <div class="fields-item-radio">
+                                <input id="paypal" class="fields-radio" type="radio" name="versand" value="paypal">
+                                <label class="fields-label fields-label-radio" for="paypal">PayPal</label>
+                            </div>
+                            <img class="fields-img" src="http://placehold.it/100x50" alt="PayPal Logo">
+                        </div>
+                        <div class="fields-section">
+                            <div class="fields-item-radio kredit-toggle">
+                                <input id="kreditkarte" class="fields-radio" type="radio" name="versand" value="kreditkarte">
+                                <label class="fields-label fields-label-radio" for="kreditkarte">Kreditkarte</label>
+                            </div>
+                            <img class="fields-img" src="http://placehold.it/100x50" alt="VISA Logo">
+                            <img class="fields-img" src="http://placehold.it/100x50" alt="MasterCard Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-section box-section--dark box-section-icon kreditbox box--hidden">
+                    <h2 class="box-section-heading">Sichere Zahlung mit Kreditkarte</h2>
+                    <p class="box-text box-text-info box-text--light">Diese Zahlungsmethode wird mit 128-SSL sicher verschlüsselt.</p>
+                    <div class="fields fields-section">
+                        <div class="clearfix">
+                            <div class="fields-item fields-item--long fl-s">
+                                <input class="fields-item-frame" type="text" name="cardnumber">
+                                <label class="fields-item-label fields-item-placeholder" for="cardnumber">Kreditkartennummer</label>
+                            </div>
+                            <img class="fields-img-large fields-item--short fl-s" src="http://placehold.it/300x150" alt="Sie finden die Nummer auf der Vorderseite">
+                        </div>
+                        <div class="clearfix">
+                            <div class="fields-item fields-item--short fl-s">
+                                <input class="fields-item-frame" type="text" name="code">
+                                <label class="fields-item-label fields-item-placeholder" for="code">Sicherheitscode</label>
+                            </div>
+                            <img class="fields-img-large fields-item--short" src="http://placehold.it/300x150" alt="Sie finden den Code auf der Rückseite">
+                        </div>
+                        <div class="fields-item-wrapper clearfix">
+                            <div class="fields-item fields-item--short">
+                                <input class="fields-item-frame" type="text" name="city">
+                                <label class="fields-item-label fields-item-placeholder" for="city">Gültig bis</label>
+                                <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">MM/JJ</span>
+                            </div>
+                        </div>
+                        <!-- <div class="fields-section clearfix">
+                            <h3 class="fields-heading">Gültig bis:</h3>
+                            <div class="fields-item fields-item--left--dark fields-item--short fl-s">
+                                <select class="fields-item-frame" name="country">
+                                    <option value="">Januar</option>
+                                    <option value="">Februar</option>
+                                    <option value="">März</option>
+                                    <option value="">April</option>
+                                    <option value="">Mai</option>
+                                    <option value="">Juni</option>
+                                    <option value="">Juli</option>
+                                    <option value="">August</option>
+                                    <option value="">September</option>
+                                    <option value="">Oktober</option>
+                                    <option value="">November</option>
+                                    <option value="">Dezember</option>
+                                </select>
+                            </div>
+                            <div class="fields-item fields-item--right--dark fields-item--short fl-s">
+                                <select class="fields-item-frame" name="country">
+                                    <option value="">2016</option>
+                                    <option value="">2017</option>
+                                    <option value="">2018</option>
+                                    <option value="">2019</option>
+                                    <option value="">2020</option>
+                                    <option value="">2021</option>
+                                    <option value="">2022</option>
+                                    <option value="">2023</option>
+                                    <option value="">2024</option>
+                                    <option value="">2025</option>
+                                </select>
+                                <label class="fields-item-label" for="country"></label>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="cart">
+                    <div class="cart-wrapper">
+                        <h2 class="box-section-heading cart-heading">Ihre Bestellung</h2>
+                        <div class="cart-item clearfix">
+                            <img src="http://placehold.it/300x300" alt="" class="cart-img fl">
+                            <div class="cart--half fl">
+                                <p class="cart-text"><span>1</span> Hemd "Deep Blue"</p>
+                                <p class="cart-item-price">39,95€</p>
+                            </div>
+                        </div>
+                        <div class="cart-item clearfix">
+                            <img src="http://placehold.it/300x300" alt="" class="cart-img fl">
+                            <div class="cart--half fl">
+                                <p class="cart-text"><span>1</span> Hose "Autumn Twill"</p>
+                                <p class="cart-item-price">69,95€</p>
+                            </div>
+                        </div>
+                        <div class="cart-price">
+                            <div class="clearfix">
+                                <p class="cart-price-text fr">109,90€</p>
+                                <p class="cart-price-text cart-price--light fl">Warenkorbwert</p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="cart-price-text fr">0,00€</p>
+                                <p class="cart-price-text cart-price--light fl">zzgl. Versandkosten</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-section--highlighted clearfix">
+                        <p class="cart--highlighted fl">Rechnungsbetrag</p>
+                        <p class="cart--highlighted fr">109,90€</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-wrapper clearfix">
+                <a href="index.html" class="button button-prev">Zurück zu den Lieferangaben</a>
+                <a href="ueberpruefung.html" class="button button-next lastitem">Weiter zur Überprüfung</a>
+            </div>
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="dist/js/scripts.js"></script>
+    </body>
+</html>

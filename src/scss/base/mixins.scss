@@ -1,0 +1,154 @@
+/******************************************************************
+STYLESHEET: STYLE
+
+    > BREAKPOINTS
+    > VENDOR_PREFIXES_HELPER
+    > TYPOGRAPHY
+    > KEYFRAMES
+    > HORIZONTALLY_CENTER_BLOCK_ELEMENTS
+    > HORIZONTALLY_AND_VERTICALLY_CENTER_BLOCK_ELEMENTS
+    > VERTICALLY_CENTER_BLOCK_ELEMENTS_KNOWN_HEIGHT
+    > VERTICALLY_CENTER_BLOCK_ELEMENTS_UNKNOWN_HEIGHT
+    > CLEARFIX
+
+******************************************************************/
+
+
+// BREAKPOINTS
+// --> @include medium {...}
+
+@mixin small {
+    @media only screen and (min-width: #{$w-small}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (min-width: #{$w-medium}) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media only screen and (min-width: #{$w-large}) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media only screen and (min-width: #{$w-wide}) {
+        @content;
+    }
+}
+
+
+
+// VENDOR_PREFIXES_HELPER
+// --> @include prefix(transform, rotate(42deg), 'webkit' 'ms');
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+
+
+// TYPOGRAPHY
+// --> @include font-size(16/10);
+
+@mixin font-size($sizeValue: 16/10) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin line-height($sizeValue: 16/10) {
+  line-height: ($sizeValue * 10) + px;
+  line-height: $sizeValue + rem;
+}
+
+@mixin letter-spacing($sizeValue: 16/10) {
+  letter-spacing: ($sizeValue * 10) + px;
+  letter-spacing: $sizeValue + rem;
+}
+
+
+
+// KEYFRAMES
+// --> @include keyframes($name) {...}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+
+
+// HORIZONTALLY_CENTER_BLOCK_ELEMENTS
+// --> @include center-block;
+
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+// HORIZONTALLY_AND_VERTICALLY_CENTER_BLOCK_ELEMENTS
+// --> @include center-both;
+
+@mixin center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+
+
+
+// VERTICALLY_CENTER_BLOCK_ELEMENTS_KNOWN_HEIGHT
+// --> @include center-h(40px);
+
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+
+
+
+// VERTICALLY_CENTER_BLOCK_ELEMENTS_UNKNOWN_HEIGHT
+// --> @include center-h-unknown;
+
+@mixin center-h-unknown {
+    position: relative;
+    top: 50%;
+    @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+}
+
+
+
+// CLEARFIX
+// --> @extend %clearfix;
+
+%clearfix {
+    *zoom: 1;
+
+    &:before, &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}

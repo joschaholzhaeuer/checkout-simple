@@ -1,0 +1,80 @@
+/******************************************************************
+STYLESHEET: HELPERS
+
+******************************************************************/
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.lastitem {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+@include small {
+
+    .fl-s {
+        float: left;
+    }
+
+    .fr-s {
+        float: right;
+    }
+}
+
+.firstitem {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.no-border-left {
+    border-left: none;
+}
+
+.no-border-right {
+    border-right: none;
+}
+
+.no-border-top {
+    border-top: none;
+}
+
+.no-pt {
+    padding-top: 0;
+}
+
+.mt {
+    margin-top: 10px;
+}
+
+.show-m {
+    display: none;
+}
+
+@include medium {
+
+    .show-m {
+        display: block;
+    }
+}
+
+@include medium {
+    .nm-m {
+        margin-right: 0;
+    }
+}

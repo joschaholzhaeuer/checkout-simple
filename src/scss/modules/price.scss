@@ -1,0 +1,37 @@
+/******************************************************************
+STYLESHEET: PRICE
+
+******************************************************************/
+
+.price {
+    font-weight: 700;
+    margin-top: 30px;
+
+    &-text {
+        margin-bottom: 0;
+
+        &--light {
+            color: $c-medium;
+        }
+    }
+
+    &-heading {
+        float: left;
+    }
+}
+
+@include medium {
+
+    .price {
+
+        &-text {
+            width: 18%;
+            text-align: right;
+        }
+
+        &-heading {
+            float: right;
+            width: 82%;
+        }
+    }
+}

@@ -90,8 +90,11 @@ STYLESHEET: STEPS
         }
 
         &-number {
-            display: inline;
-            margin-right: 10px;
+            display: block;
+            position: absolute;
+            left: 68px;
+            width: 26px;
+            height: 26px;
         }
     }
 }

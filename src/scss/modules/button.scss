@@ -25,6 +25,11 @@ STYLESHEET: BUTTON
     &-wrapper {
         width: 100%;
         margin-top: 30px;
+
+        &--ende {
+            text-align: center;
+            margin-top: 100px;
+        }
     }
 
     &-prev {
@@ -53,6 +58,11 @@ STYLESHEET: BUTTON
             background-color: $c-alt-dark;
             // background: linear-gradient($c-alt-dark, $c-alt-light);
         }
+    }
+
+    &-final {
+        float: none;
+        text-align: center;
     }
 }
 

@@ -909,6 +909,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'lieferadresse', '/~holzhaeu/thesis_prototyp/checkout_simple/lieferadresse.html');
+
                 // click on tab 2
                 } else if ($clicked_tab.hasClass('step-two') && !$clicked_tab.hasClass('steps-item--active')) {
                     $tab_two.removeClass('tab--inactive');
@@ -933,6 +936,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'bezahlungsart', '/~holzhaeu/thesis_prototyp/checkout_simple/bezahlungsart.html');
+
                 // click on tab 3
                 } else if ($clicked_tab.hasClass('step-three') && !$clicked_tab.hasClass('steps-item--active')) {
 
@@ -956,6 +962,9 @@ $(document).ready(function($) {
                     updateText();
                     calculateCosts();
                     updateUserdata();
+
+                    // change url
+                    window.history.pushState('obj', 'ueberpruefung', '/~holzhaeu/thesis_prototyp/checkout_simple/ueberpruefung.html');
                 }
 
                 // jump to top
@@ -1058,6 +1067,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'lieferadresse', '/~holzhaeu/thesis_prototyp/checkout_simple/lieferadresse.html');
+
                 // click on button 2
                 } else if ($clicked_button.hasClass('button-two')) {
                     $tab_two.removeClass('tab--inactive');
@@ -1081,6 +1093,9 @@ $(document).ready(function($) {
 
                     // update cart prizes and text on load
                     updateCart();
+
+                    // change url
+                    window.history.pushState('obj', 'bezahlungsart', '/~holzhaeu/thesis_prototyp/checkout_simple/bezahlungsart.html');
 
                 // click on button 3
                 } else if ($clicked_button.hasClass('button-three')) {
@@ -1106,6 +1121,9 @@ $(document).ready(function($) {
                     calculateCosts();
                     updateUserdata();
 
+                    // change url
+                    window.history.pushState('obj', 'ueberpruefung', '/~holzhaeu/thesis_prototyp/checkout_simple/ueberpruefung.html');
+
                 // click on button 4
                 } else if ($clicked_button.hasClass('button-four')) {
 
@@ -1120,6 +1138,10 @@ $(document).ready(function($) {
 
                         // show additional boxes
                         showDankeboxes();
+
+                        // change url
+                        window.history.pushState('obj', 'erfolgreich', '/~holzhaeu/thesis_prototyp/checkout_simple/erfolgreich.html');
+
                     } else {
                         checkAgbs();
                     }

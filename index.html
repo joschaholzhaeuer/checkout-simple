@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--long fields-item--left fl-s">
-                                        <input class="fields-input fields-item-frame lieferadresse-street" type="text" name="street1" maxlength="40">
+                                        <input class="fields-street fields-item-frame lieferadresse-street" type="text" name="street1" maxlength="40">
                                         <label class="fields-item-label fields-item-placeholder" for="street1">Straße</label>
                                         <span class="fields-error">Bitte geben Sie eine Straße an.</span>
                                         <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
@@ -220,7 +220,7 @@
                                 </div>
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--long fields-item--left--dark fl-s">
-                                        <input class="fields-input fields-item-frame no-validation-fields no-validation-required rechnungsadresse-street" type="text" name="street2" maxlength="40">
+                                        <input class="fields-street fields-item-frame no-validation-fields no-validation-required rechnungsadresse-street" type="text" name="street2" maxlength="40">
                                         <label class="fields-item-label fields-item-placeholder" for="street2">Straße</label>
                                         <span class="fields-error">Bitte geben Sie eine Straße an.</span>
                                         <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
@@ -320,6 +320,7 @@
                                     <div class="fields-item fields-item--half">
                                         <input class="fields-date fields-item-frame no-validation-fields2 no-validation-required" type="text" name="valid" maxlength="5">
                                         <label class="fields-item-label fields-item-placeholder" for="valid">Gültig bis</label>
+                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">MM/JJ</span>
                                         <span class="fields-error">Bitte geben Sie das Gültigkeitsdatum an.</span>
                                         <span class="fields-error2">Haben Sie das Format MM/JJ richtig angegeben?</span>
                                     </div>
@@ -407,7 +408,7 @@
                         <div class="fields">
                             <div class="fields-section">
                                 <div class="fields-item-check">
-                                    <input id="agbs" class="fields-check" type="checkbox" name="adresse" checked>
+                                    <input id="agbs" class="fields-check" type="checkbox" name="adresse">
                                     <label class="fields-label fields-label-check fields-label--aligned" for="agbs">Ich habe die Datenschutzhinweise und die Allgemeinen Geschäftsbedingungen zur Kenntnis genommen.</label>
                                 </div>
                             </div>
@@ -545,11 +546,11 @@
                             </div>
                             <div class="fields-section">
                                 <div class="fields-item-check">
-                                    <input id="newsletter" class="fields-check" type="checkbox" name="newsletter" checked>
+                                    <input id="newsletter" class="fields-check" type="checkbox" name="newsletter">
                                     <label class="fields-label fields-label-check" for="newsletter">Ich möchte über Neuigkeiten und spezielle Angebote informiert werden</label>
                                 </div>
                                 <div class="fields-item-check mt">
-                                    <input id="agb" class="fields-check" type="checkbox" name="agb" checked>
+                                    <input id="agb" class="fields-check" type="checkbox" name="agb">
                                     <label class="fields-label fields-label-check" for="agb">Ich akzeptiere die Datenschutzhinweise und die Allgemeinen Geschäftsbedingungen</label>
                                 </div>
                             </div>
@@ -559,7 +560,7 @@
 
                 <div class="button-wrapper clearfix">
                     <a href="index.html" class="button button-prev">Nein, danke. Zurück zum Shop</a>
-                    <a href="index.html" class="button button-next lastitem">Nutzerkonto anlegen</a>
+                    <a href="index.html" class="button button-next lastitem button-last">Nutzerkonto anlegen</a>
                 </div>
             </div>
 

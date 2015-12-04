@@ -26,7 +26,7 @@ STYLESHEET: STEPS
     // box-shadow: 0 12px 15px -10px $c-medium;
 
     &-item {
-        background-color: $c-alt-dark;
+        background-color: $c-base;
         color: $white;
         text-decoration: none;
         float: left;
@@ -42,6 +42,10 @@ STYLESHEET: STEPS
         &--active {
             background-color: $c-alt-light;
             // box-shadow: 14px 0 24px -13px rgba(0,0,0,0.3);
+        }
+
+        &:hover {
+            background-color: $c-alt-dark;
         }
 
         &--done {
@@ -70,9 +74,16 @@ STYLESHEET: STEPS
                 top: 0;
                 right: -31px;
                 z-index: 210;
-                border-left: 31px solid $c-alt-dark;
+                border-left: 31px solid $c-base;
                 border-top: 31px solid transparent;
                 border-bottom: 31px solid transparent;
+            }
+
+            &:hover {
+
+                &:after {
+                    border-left: 31px solid $c-alt-dark;
+                }
             }
         }
     }
@@ -82,6 +93,13 @@ STYLESHEET: STEPS
         &-item {
 
             &--active {
+
+                &:after {
+                    border-left: 31px solid $c-alt-light;
+                }
+            }
+
+            &--done {
 
                 &:after {
                     border-left: 31px solid $c-alt-light;

@@ -95,15 +95,39 @@ function checkAgbs() {
 
     var $agbs = $('#agbs'),
         $fields_check = $('.fields-item-check'),
-        agbs_offset = $agbs.offset().top;
+        agbs_offset = $agbs.offset().top,
+        $agb_label = $agbs.siblings('.fields-label');
 
+    if (!$agbs.is(':checked')) {
 
-    // show additional boxes after delay
-    setTimeout(delayAgbCheck, 1000);
-    function delayAgbCheck() {
+        $agb_label.addClass('fields-label--error');
 
-        // check agbs
-        $agbs.prop('checked', true);
+    } else {
+
+        if ($agb_label.hasClass('fields-label--error')) {
+            $agb_label.removeClass('fields-label--error');
+        }
+    }
+}
+
+function checkKontoCheckboxes() {
+
+    var $agb = $('#agb'),
+        $agb_label = $agb.siblings('.fields-label');
+
+    setTimeout(delayKonto, 600);
+    function delayKonto() {
+
+        if (!$agb.is(':checked')) {
+
+            $agb_label.addClass('fields-label--error');
+
+        } else {
+
+            if ($agb_label.hasClass('fields-label--error')) {
+                $agb_label.removeClass('fields-label--error');
+            }
+        }
     }
 }
 
@@ -274,6 +298,64 @@ function checkErrorsNumber($element) {
                 $current_field_n.addClass('input--correct');
                 $icon_check.show();
             }
+        }
+    }
+}
+
+
+// check street number for errors
+function checkErrorsStreet($element) {
+
+    var $current_field_n = $element,
+        $icon_check      = $current_field_n.siblings('.icon--correct'),
+        entered_input    = $current_field_n.val(),
+        test_text        = /^([A-Zäöüß \-]|[A-Zäöüß \-]+[\.])*$/i;
+
+    // remove check icon
+    $current_field_n.removeClass('input--correct');
+    $icon_check.hide();
+    $icon_check.removeClass('flip');
+
+    // input field was left empty
+    if (entered_input.length === 0) {
+        $current_field_n.addClass('fields-error-frame');
+        $current_field_n.siblings('.fields-item-label').hide();
+        $current_field_n.siblings('.fields-error2').hide();
+        $current_field_n.siblings('.fields-error').show();
+
+    // input was entered
+    } else {
+
+        // if no correct input was entered
+        if (!test_text.test(entered_input)) {
+
+            // show error message for wrong input and hide previous error, if it is still visible
+            if ($current_field_n.hasClass('fields-error-frame')) {
+                $current_field_n.siblings('.fields-error').hide();
+                $current_field_n.siblings('.fields-error2').show();
+
+            // otherwise show error message for wrong input
+            } else {
+                $current_field_n.addClass('fields-error-frame');
+                $current_field_n.siblings('.fields-item-label').hide();
+                $current_field_n.siblings('.fields-error2').show();
+            }
+
+        // user entered a correct input
+        } else {
+
+            // hide error message
+            if ($current_field_n.hasClass('fields-error-frame')) {
+                $current_field_n.removeClass('fields-error-frame');
+                $current_field_n.siblings('.fields-item-label').show();
+                $current_field_n.siblings('.fields-error').hide();
+                $current_field_n.siblings('.fields-error2').hide();
+            }
+
+            // show correct icon
+            $current_field_n.addClass('input--correct');
+            $icon_check.show();
+            $icon_check.addClass('flip');
         }
     }
 }
@@ -773,6 +855,11 @@ $(document).ready(function($) {
                 checkErrorsStreetNumber($(this));
             }
         });
+        $('.fields-street').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsStreet($(this));
+            }
+        });
         $('.fields-date').each(function(index, el) {
             if (!$(this).hasClass('no-validation-required')) {
                 checkErrorsExpiration($(this));
@@ -790,10 +877,8 @@ $(document).ready(function($) {
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
 
-                var error_pos = $('.fields-error-frame').first().offset().top - 200;
-
                 //smooth scroll to error
-                $('body,html').scrollTop(error_pos);
+                $('body,html').scrollTop(0);
 
             // go to next step if there are no errors
             } else {
@@ -922,6 +1007,11 @@ $(document).ready(function($) {
                 checkErrorsStreetNumber($(this));
             }
         });
+        $('.fields-street').each(function(index, el) {
+            if (!$(this).hasClass('no-validation-required')) {
+                checkErrorsStreet($(this));
+            }
+        });
         $('.fields-date').each(function(index, el) {
             if (!$(this).hasClass('no-validation-required')) {
                 checkErrorsExpiration($(this));
@@ -939,10 +1029,8 @@ $(document).ready(function($) {
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
 
-                var error_pos = $('.fields-error-frame').first().offset().top - 200;
-
                 //smooth scroll to error
-                $('body,html').scrollTop(error_pos);
+                $('body,html').scrollTop(0);
 
             // go to next step if there are no errors
             } else {
@@ -1232,37 +1320,21 @@ $(document).ready(function($) {
         }
     });
 
-    // Show/hide info on click
-    $(document).on('click', '.danke-info', function() {
-
-        if (!$(this).data('isClicked')) {
-            var $trigger3 = $(this),
-                $tippsbox = $('.tippsbox');
-
-            if (!$tippsbox.hasClass('is-shown')) {
-                $tippsbox.show();
-                $tippsbox.addClass('is-shown');
-                $trigger3.addClass('is-shown');
-            } else {
-                $tippsbox.hide();
-                $tippsbox.removeClass('is-shown');
-                $trigger3.removeClass('is-shown');
-            }
-
-            // Using a timer to prevent multiple clicks
-            $trigger3.data('isClicked', true);
-            setTimeout(function() {
-                $trigger3.removeData('isClicked');
-            }, 100);
-        }
-    });
-
 
     // Form validation on input fields
     $(document).on('focusout', '.fields-input', function() {
 
-        if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation')) {
-            checkErrorsInput($(this));
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('fields-optional') && !$(this).hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
         }
     });
 
@@ -1270,8 +1342,17 @@ $(document).ready(function($) {
     // Form validation on number fields
     $(document).on('focusout', '.fields-number', function() {
 
-        if (!$(this).hasClass('no-validation')) {
-            checkErrorsNumber($(this));
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
         }
     });
 
@@ -1279,8 +1360,35 @@ $(document).ready(function($) {
     // Form validation on street number fields
     $(document).on('focusout', '.fields-streetnumber', function() {
 
-        if (!$(this).hasClass('no-validation')) {
-            checkErrorsStreetNumber($(this));
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
+        }
+    });
+
+
+    // Form validation on street fields
+    $(document).on('focusout', '.fields-street', function() {
+
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
         }
     });
 
@@ -1288,8 +1396,17 @@ $(document).ready(function($) {
     // Form validation on expiration date
     $(document).on('focusout', '.fields-date', function() {
 
-        if (!$(this).hasClass('no-validation')) {
-            checkErrorsExpiration($(this));
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
         }
     });
 
@@ -1297,15 +1414,72 @@ $(document).ready(function($) {
     // Form validation on password
     $(document).on('focusout', '.fields-password', function() {
 
-        checkErrorsPassword($(this));
+        var $current_input = $(this);
+
+        // hide error message
+        if ($current_input.hasClass('fields-error-frame')) {
+            $current_input.removeClass('fields-error-frame');
+            $current_input.siblings('.fields-item-label').show();
+            $current_input.siblings('.fields-error').hide();
+            $current_input.siblings('.fields-error2').hide();
+        }
     });
 
 
     // Form validation on mail fields
     $(document).on('focusout', '.fields-mail', function() {
 
-        if (!$(this).hasClass('no-validation')) {
-            checkErrorsMail($(this));
+        var $current_input = $(this);
+
+        if (!$current_input.hasClass('no-validation')) {
+
+            // hide error message
+            if ($current_input.hasClass('fields-error-frame')) {
+                $current_input.removeClass('fields-error-frame');
+                $current_input.siblings('.fields-item-label').show();
+                $current_input.siblings('.fields-error').hide();
+                $current_input.siblings('.fields-error2').hide();
+            }
+        }
+    });
+
+
+    // Check button color on click on agbs checkbox
+    $(document).on('click', '#agbs', function() {
+
+        var $agbs = $('#agbs'),
+            $agb_label = $agbs.siblings('.fields-label');
+
+        if ($agb_label.hasClass('fields-label--error')) {
+            $agb_label.removeClass('fields-label--error');
+        }
+    });
+
+
+    // Check button color on click on agb checkbox
+    $(document).on('click', '#agb', function() {
+
+        var $agb = $('#agb'),
+            $agb_label = $agb.siblings('.fields-label');
+
+        if ($agb_label.hasClass('fields-label--error')) {
+            $agb_label.removeClass('fields-label--error');
+        }
+    });
+
+
+    // Prevent button click if checkboxes agb and news are not checked
+    $(document).on('click', '.button-last', function(event) {
+
+        checkErrorsPassword($('.fields-password'));
+
+        if (!$('#agb').is(':checked')) {
+            event.preventDefault();
+            checkKontoCheckboxes();
+
+        } else if ($('.tab--active').find('.fields-error-frame').length > 0) {
+            event.preventDefault();
+            checkKontoCheckboxes();
         }
     });
 

@@ -32,6 +32,7 @@
                         <div class="fields">
                             <div class="fields-section">
                                 <h3 class="fields-heading">Lieferadresse</h3>
+                                <p class="fields-section-info">Felder mit einem * müssen ausgefüllt werden.</p>
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item-inline fields-item-radio">
                                         <input id="female1" class="fields-radio" type="radio" name="gender1" checked>
@@ -45,13 +46,13 @@
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--half fields-item--left fl-s">
                                         <input class="fields-input fields-item-frame lieferadresse-name" type="text" name="name1" maxlength="30">
-                                        <label class="fields-item-label fields-item-placeholder" for="name1">Vorname</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="name1">Vorname<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie einen Vornamen ein.</span>
                                         <span class="fields-error2">Ihr Vorname sollte nicht aus Ziffern bestehen.</span>
                                     </div>
                                     <div class="fields-item fields-item--half fields-item--right fl-s">
                                         <input class="fields-input fields-item-frame lieferadresse-surname" type="text" name="surname1" maxlength="30">
-                                        <label class="fields-item-label fields-item-placeholder" for="surname1">Nachname</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="surname1">Nachname<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie einen Nachnamen ein.</span>
                                         <span class="fields-error2">Ihr Nachname sollte nicht aus Ziffern bestehen.</span>
                                     </div>
@@ -63,13 +64,13 @@
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--long fields-item--left fl-s">
                                         <input class="fields-street fields-item-frame lieferadresse-street" type="text" name="street1" maxlength="40">
-                                        <label class="fields-item-label fields-item-placeholder" for="street1">Straße</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="street1">Straße<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie eine Straße an.</span>
                                         <span class="fields-error2">Die Straße sollte nicht aus Ziffern bestehen.</span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right fl-s">
                                         <input class="fields-streetnumber fields-item-frame lieferadresse-number" type="text" name="number1" maxlength="10">
-                                        <label class="fields-item-label fields-item-placeholder" for="number1">Nr.</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="number1">Nr.<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie eine Nummer an.</span>
                                         <span class="fields-error2">Haben Sie eine Nummer angegeben?</span>
                                     </div>
@@ -81,13 +82,13 @@
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--long fields-item--left fl-s">
                                         <input class="fields-input fields-item-frame lieferadresse-city" type="text" name="city1" maxlength="40">
-                                        <label class="fields-item-label fields-item-placeholder" for="city1">Ort</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="city1">Ort<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie einen Ort an.</span>
                                         <span class="fields-error2">Der Ort sollte nicht aus Ziffern bestehen.</span>
                                     </div>
                                     <div class="fields-item fields-item--short fields-item--right fl-s">
                                         <input class="fields-number fields-item-frame lieferadresse-plz" type="text" name="plz1" data-validation="min5" maxlength="5">
-                                        <label class="fields-item-label fields-item-placeholder" for="plz1">Postleitzahl</label>
+                                        <label class="fields-item-label fields-item-placeholder" for="plz1">Postleitzahl<span class="fields-req">&#x2731;</span></label>
                                         <span class="fields-error">Bitte geben Sie eine Postleitzahl an.</span>
                                         <span class="fields-error2">Die PLZ sollte aus 5 Ziffern bestehen.</span>
                                     </div>
@@ -104,7 +105,7 @@
                                 <h3 class="fields-heading">Kontakt</h3>
                                 <div class="fields-item fields-item--left fields-item--long">
                                     <input class="fields-mail fields-item-frame kontakt-toggle lieferadresse-mail" type="text" name="mail1" maxlength="45">
-                                    <label class="fields-item-label fields-item-placeholder" for="mail1">E-Mail</label>
+                                    <label class="fields-item-label fields-item-placeholder" for="mail1">E-Mail<span class="fields-req">&#x2731;</span></label>
                                     <span class="fields-error">Bitte geben Sie eine E-Mail-Adresse an.</span>
                                     <span class="fields-error2">Bitte geben Sie eine gültige E-Mail-Adresse an. (z.B.: max.mustermax@gmail.com)</span>
                                 </div>
@@ -319,10 +320,9 @@
                                 <div class="fields-item-wrapper clearfix">
                                     <div class="fields-item fields-item--half">
                                         <input class="fields-date fields-item-frame no-validation-fields2 no-validation-required" type="text" name="valid" maxlength="5">
-                                        <label class="fields-item-label fields-item-placeholder" for="valid">Gültig bis</label>
-                                        <span class="fields-item-placeholder fields-item-placeholder--info is-invisible">MM/JJ</span>
+                                        <label class="fields-item-label fields-item-placeholder" for="valid">Gültig bis (MM/JJ)</label>
                                         <span class="fields-error">Bitte geben Sie das Gültigkeitsdatum an.</span>
-                                        <span class="fields-error2">Haben Sie das Format MM/JJ richtig angegeben?</span>
+                                        <span class="fields-error2">Haben Sie das Datum (MM/JJ) richtig angegeben?</span>
                                     </div>
                                 </div>
                             </div>
@@ -511,7 +511,7 @@
                         <div class="box-section--half fl lastitem">
                             <h3 class="box-section-heading">Was können Sie als Nächstes tun?</h3>
                             <p class="box-text box-text--small">Schauen Sie in Ihrem Posteingang nach, ob Sie unsere Bestellbestätigung erhalten haben.</p>
-                            <p class="box-text box-text--small">Registrieren Sie sich, um bei Ihrem nächsten Einkauf von vielen Vorteilen zu profitieren: Eine Bestellübersicht über Ihre bisher getätigten Einkäufe sowie Zugang zu exklusiven Angeboten.</p>
+                            <p class="box-text box-text--small">Registrieren Sie sich, um bei Ihrem nächsten Einkauf von vielen Vorteilen zu profitieren: Einen schnelleren Checkout, eine Bestellübersicht über Ihre bisher getätigten Einkäufe sowie Zugang zu exklusiven Angeboten.</p>
                         </div>
                     </div>
                     <div class="box-section box-section--dark nutzerkontobox">
@@ -562,12 +562,6 @@
                     <a href="index.html" class="button button-prev">Nein, danke. Zurück zum Shop</a>
                     <a href="index.html" class="button button-next lastitem button-last">Nutzerkonto anlegen</a>
                 </div>
-            </div>
-
-            <div class="spinner">
-              <div class="bounce1"></div>
-              <div class="bounce2"></div>
-              <div class="bounce3"></div>
             </div>
         </div>
 

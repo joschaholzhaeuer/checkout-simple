@@ -11,7 +11,6 @@ STYLESHEET: BUTTON
     margin-right: 2%;
     text-align: center;
     font-weight: 700;
-    box-shadow: 0 0 15px -1px $c-medium;
     cursor: pointer;
 
     &-change {
@@ -43,7 +42,7 @@ STYLESHEET: BUTTON
             //border: 2px solid $c-alt-light;
             //color: $c-alt-light;
             //background: linear-gradient($c-dark, $c-base);
-            background-color: $c-base;
+            // background-color: $c-base;
         }
     }
 
@@ -55,7 +54,7 @@ STYLESHEET: BUTTON
         color: $white;
 
         &:hover {
-            background-color: $c-alt-dark;
+            // background-color: $c-alt-dark;
             // background: linear-gradient($c-alt-dark, $c-alt-light);
         }
     }

@@ -45,7 +45,7 @@ STYLESHEET: STEPS
         }
 
         &:hover {
-            background-color: $c-alt-dark;
+            // background-color: $c-alt-dark;
         }
 
         &--done {
@@ -82,7 +82,7 @@ STYLESHEET: STEPS
             &:hover {
 
                 &:after {
-                    border-left: 31px solid $c-alt-dark;
+                    // border-left: 31px solid $c-alt-dark;
                 }
             }
         }

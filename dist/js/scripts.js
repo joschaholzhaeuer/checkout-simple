@@ -22,6 +22,7 @@ function adressbox() {
         $label.addClass('checked');
         $adressbox.hide();
         $adressbox.addClass('no-validation');
+        $val_fields.val('');
         if (!$val_fields.hasClass('no-validation-required')) {
             $val_fields.addClass('no-validation-required');
         }
@@ -56,6 +57,7 @@ function hideKreditbox() {
 
     $kreditbox.hide();
     $kreditbox.addClass('no-validation');
+    $val_fields.val('');
 
     if (!$val_fields.hasClass('no-validation-required')) {
         $val_fields.addClass('no-validation-required');
@@ -802,9 +804,6 @@ $(document).ready(function($) {
         cart_offset = $cart.offset().top;
 
 
-    // Hide loading spinner
-    $('.spinner').hide();
-
     // Hide additional boxes
     $('.adressbox').hide();
     $('.kreditbox').hide();
@@ -829,56 +828,48 @@ $(document).ready(function($) {
         $step_two    = $('.step-two'),
         $step_three  = $('.step-three'),
         $tab_active  = $('.tab--active > .box'),
-        $spinner     = $('.spinner'),
         $one_number  = $('.step-one > .step-number'),
         $two_number  = $('.step-two > .step-number'),
         $one_done    = $('.step-one--done'),
         $two_done    = $('.step-two--done');
 
-        // Show loading spinner on click
-        $tab_active.addClass('box-overlay');
-        $spinner.show();
-
-        // check for errors
-        $('.fields-input').each(function(index, el) {
-            if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                checkErrorsInput($(this));
-            }
-        });
-        $('.fields-number').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsNumber($(this));
-            }
-        });
-        $('.fields-streetnumber').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsStreetNumber($(this));
-            }
-        });
-        $('.fields-street').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsStreet($(this));
-            }
-        });
-        $('.fields-date').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsExpiration($(this));
-            }
-        });
-        $('.fields-mail').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsMail($(this));
-            }
-        });
-
         setTimeout(delay_one, 1000);
         function delay_one() {
 
+            // check for errors
+            $('.fields-input').each(function(index, el) {
+                if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
+                    checkErrorsInput($(this));
+                }
+            });
+            $('.fields-number').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsNumber($(this));
+                }
+            });
+            $('.fields-streetnumber').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsStreetNumber($(this));
+                }
+            });
+            $('.fields-street').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsStreet($(this));
+                }
+            });
+            $('.fields-date').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsExpiration($(this));
+                }
+            });
+            $('.fields-mail').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsMail($(this));
+                }
+            });
+
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
-
-                //smooth scroll to error
-                $('body,html').scrollTop(0);
 
             // go to next step if there are no errors
             } else {
@@ -909,6 +900,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'lieferadresse', '/~holzhaeu/thesis_prototyp/checkout_simple/lieferadresse.html');
+
                 // click on tab 2
                 } else if ($clicked_tab.hasClass('step-two') && !$clicked_tab.hasClass('steps-item--active')) {
                     $tab_two.removeClass('tab--inactive');
@@ -933,6 +927,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'bezahlungsart', '/~holzhaeu/thesis_prototyp/checkout_simple/bezahlungsart.html');
+
                 // click on tab 3
                 } else if ($clicked_tab.hasClass('step-three') && !$clicked_tab.hasClass('steps-item--active')) {
 
@@ -956,6 +953,9 @@ $(document).ready(function($) {
                     updateText();
                     calculateCosts();
                     updateUserdata();
+
+                    // change url
+                    window.history.pushState('obj', 'ueberpruefung', '/~holzhaeu/thesis_prototyp/checkout_simple/ueberpruefung.html');
                 }
 
                 // jump to top
@@ -964,9 +964,6 @@ $(document).ready(function($) {
 
             setTimeout(delay_spinner, 300);
             function delay_spinner() {
-                // Hide loading spinner after tab-switch
-                $tab_active.removeClass('box-overlay');
-                $spinner.hide();
                 checkStep();
             }
         }
@@ -984,53 +981,45 @@ $(document).ready(function($) {
         $step_one    = $('.step-one'),
         $step_two    = $('.step-two'),
         $step_three  = $('.step-three'),
-        $tab_active  = $('.tab--active > .box'),
-        $spinner     = $('.spinner');
-
-        // Show loading spinner on click
-        $tab_active.addClass('box-overlay');
-        $spinner.show();
-
-        //check for errors
-        $('.fields-input').each(function(index, el) {
-            if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
-                checkErrorsInput($(this));
-            }
-        });
-        $('.fields-number').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsNumber($(this));
-            }
-        });
-        $('.fields-streetnumber').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsStreetNumber($(this));
-            }
-        });
-        $('.fields-street').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsStreet($(this));
-            }
-        });
-        $('.fields-date').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsExpiration($(this));
-            }
-        });
-        $('.fields-mail').each(function(index, el) {
-            if (!$(this).hasClass('no-validation-required')) {
-                checkErrorsMail($(this));
-            }
-        });
+        $tab_active  = $('.tab--active > .box');
 
         setTimeout(delay_two, 1000);
         function delay_two() {
 
+            //check for errors
+            $('.fields-input').each(function(index, el) {
+                if (!$(this).hasClass('fields-optional') && !$(this).hasClass('no-validation-required')) {
+                    checkErrorsInput($(this));
+                }
+            });
+            $('.fields-number').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsNumber($(this));
+                }
+            });
+            $('.fields-streetnumber').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsStreetNumber($(this));
+                }
+            });
+            $('.fields-street').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsStreet($(this));
+                }
+            });
+            $('.fields-date').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsExpiration($(this));
+                }
+            });
+            $('.fields-mail').each(function(index, el) {
+                if (!$(this).hasClass('no-validation-required')) {
+                    checkErrorsMail($(this));
+                }
+            });
+
             // check if there are any errors or empty fields in the current tab
             if ($('.tab--active').find('.fields-error-frame').length > 0) {
-
-                //smooth scroll to error
-                $('body,html').scrollTop(0);
 
             // go to next step if there are no errors
             } else {
@@ -1058,6 +1047,9 @@ $(document).ready(function($) {
                     // update cart prizes and text on load
                     updateCart();
 
+                    // change url
+                    window.history.pushState('obj', 'lieferadresse', '/~holzhaeu/thesis_prototyp/checkout_simple/lieferadresse.html');
+
                 // click on button 2
                 } else if ($clicked_button.hasClass('button-two')) {
                     $tab_two.removeClass('tab--inactive');
@@ -1081,6 +1073,9 @@ $(document).ready(function($) {
 
                     // update cart prizes and text on load
                     updateCart();
+
+                    // change url
+                    window.history.pushState('obj', 'bezahlungsart', '/~holzhaeu/thesis_prototyp/checkout_simple/bezahlungsart.html');
 
                 // click on button 3
                 } else if ($clicked_button.hasClass('button-three')) {
@@ -1106,6 +1101,9 @@ $(document).ready(function($) {
                     calculateCosts();
                     updateUserdata();
 
+                    // change url
+                    window.history.pushState('obj', 'ueberpruefung', '/~holzhaeu/thesis_prototyp/checkout_simple/ueberpruefung.html');
+
                 // click on button 4
                 } else if ($clicked_button.hasClass('button-four')) {
 
@@ -1120,6 +1118,10 @@ $(document).ready(function($) {
 
                         // show additional boxes
                         showDankeboxes();
+
+                        // change url
+                        window.history.pushState('obj', 'erfolgreich', '/~holzhaeu/thesis_prototyp/checkout_simple/erfolgreich.html');
+
                     } else {
                         checkAgbs();
                     }
@@ -1131,9 +1133,6 @@ $(document).ready(function($) {
 
             setTimeout(delay_spinner2, 300);
             function delay_spinner2() {
-                // Hide loading spinner after tab-switch
-                $tab_active.removeClass('box-overlay');
-                $spinner.hide();
                 checkStep();
             }
         }
@@ -1464,6 +1463,22 @@ $(document).ready(function($) {
 
         if ($agb_label.hasClass('fields-label--error')) {
             $agb_label.removeClass('fields-label--error');
+        }
+    });
+
+
+    // Add / when entering expiry date
+    $(document).on('keyup', '.fields-date', function(key) {
+
+        var $fields_date = $(this),
+            code = key.which;
+
+        // allow backspace
+        if (code != 8) {
+
+            if ($fields_date.val().length == 2){
+                $fields_date.val($fields_date.val() + "/");
+            }
         }
     });
 
